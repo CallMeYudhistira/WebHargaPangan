@@ -1,0 +1,208 @@
+@font-face {
+    font-family: "poppins";
+    src: url(../font/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: "montserrat";
+    src: url(../font/Montserrat-Regular.ttf);
+}
+
+@font-face {
+    font-family: "figtree";
+    src: url(../font/Figtree-Regular.ttf);
+}
+
+@font-face {
+    font-family: "open sans";
+    src: url(../font/OpenSans-Regular.ttf);
+}
+
+* {
+    font-family: "figtree", "poppins", "montserrat", "open sans";
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.m-auto {
+    margin: auto 0;
+}
+
+.long-image {
+    object-fit: fill;
+    min-width: 100%;
+    width: 100%;
+    margin: 10px auto;
+}
+
+header {
+    background-color: rgba(106, 203, 82, 0.92);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px 0 40px;
+    margin-bottom: 20px;
+}
+
+ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+li {
+    margin: 15px;
+}
+
+li a {
+    color: rgb(216, 208, 208);
+    text-decoration: none;
+    font-weight: 200;
+}
+
+li a.active {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.container {
+    margin: 20px;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.naik {
+    background-color: rgb(172, 32, 32);
+    color: white;
+}
+
+.turun {
+    background-color: rgb(43, 143, 43);
+    color: white;
+}
+
+.card {
+    /* existing */
+    min-width: 230px;
+    width: 230px;
+    box-shadow: 2px 8px 12px 1px rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    margin: 12px;
+
+    /* add this */
+    position: relative;
+    overflow: hidden;
+    /* untuk menghindari elemen keluar */
+}
+
+.card-img {
+    margin-bottom: -15px;
+    border-radius: 5px 5px 0 0;
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 10px;
+    text-transform: capitalize;
+}
+
+.card-title {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 13px;
+}
+
+.vertical-line {
+    border-right: 1.8px solid rgb(255, 255, 255);
+}
+
+.scroll-x {
+    overflow-x: scroll;
+    padding: 10px;
+}
+
+.harga {
+    min-width: 230px;
+    width: 230px;
+    height: 130px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
+    /* transparan hitam */
+    color: rgba(217, 209, 209, 0.751);
+    font-size: 30px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    z-index: 10;
+    /* pastikan berada di atas gambar */
+    transition: background-color 0.4s;
+}
+
+.harga:hover {
+    cursor: default;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: rgb(233, 224, 224);
+}
+
+.icon-nav {
+    width: 50px;
+    margin: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input[type="date"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.form-tampil{
+    padding: 15px;
+}
+
+.tabel-harga{
+    width: 100%;
+    margin: 25px auto;
+}
+
+.tabel-harga thead tr th{
+    border-top: 3px solid grey;
+    border-bottom: 3px solid grey;
+    padding: 10px;
+}
+
+.tabel-harga tbody tr td{
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1.7px solid gray;
+}
+
+.tampil-btn {
+    margin-left: 20px;
+    width: 100px;
+    background: rgb(90, 190, 70);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
