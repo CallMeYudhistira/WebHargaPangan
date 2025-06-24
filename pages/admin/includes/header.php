@@ -1,5 +1,5 @@
 <?php
-$current_page = $_GET['route'];
+$current_page = trim($_GET['route'] ?? "", "/");
 ?>
 <header class="app-navbar">
     <div class="app-bar-container">
@@ -10,10 +10,10 @@ $current_page = $_GET['route'];
         </div>
         <div class="right-section">
             <div class="group-menu-nav">
-                <a class="menu-nav <?= ($current_page == '/admin') ? 'active' : '' ?>" href="index.php?route=/admin">
+                <a class="menu-nav <?= ($current_page == 'admin') ? 'active' : '' ?>" href="index.php?route=/admin">
                     <span>🏠 Beranda</span>
                 </a>
-                <a class="menu-nav <?= ($current_page == '/admin/kelola-komoditas') ? 'active' : '' ?>" href="index.php?route=/admin/kelola-komoditas">
+                <a class="menu-nav <?= ($current_page == 'admin/kelola-komoditas') ? 'active' : '' ?>" href="index.php?route=/admin/kelola-komoditas">
                     <span>🥩 Kelola Komoditas</span>
                 </a>
             </div>

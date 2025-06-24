@@ -1,6 +1,6 @@
 <?php
 
-$current_page = $_GET['route'] ?? "";
+$current_page = trim($_GET['route'] ?? "", "/");
 
 ?>
 
@@ -16,7 +16,7 @@ $current_page = $_GET['route'] ?? "";
             </li>
             <div class="vertical-line"></div>
             <li>
-                <a href="index.php?route=/harga" class="nav-link <?= ($current_page == '/harga') ? 'active' : ''; ?>">Harga
+                <a href="index.php?route=/harga" class="nav-link <?= ($current_page == 'harga') ? 'active' : ''; ?>">Harga
                     Pangan</a>
             </li>
             <li>
