@@ -14,12 +14,13 @@ $decode = json_decode($json, true);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Informasi Pangan Kota Cimahi</title>
     <link href="pages/user/assets/css/style.css" rel="stylesheet">
+    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
     <?php include 'includes/navbar.php'; ?>
 
-    <h1 class="container">Informasi Harga Pangan Terkini</h1>
+    <h1 class="container" style="font-size: 38px;">Informasi Harga Pangan Terkini</h1>
 
     <div class="slider">
         <div class="slides">
@@ -31,23 +32,33 @@ $decode = json_decode($json, true);
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <div><br></div>
 
-    <div class="container">
-        <div class="d-flex scroll-x">
+    <div class="info-terbaru-komoditas">
+        <h1 style="text-align: center; position: sticky;">Berikut Harga Pangan Terbaru</h1>
+        <div class="d-flex x-scroll" style="padding: 15px;">
             <?php foreach ($decode as $data): ?>
-                <div class="card <?= $data['status'] ?>">
-                    <div class="harga">
-                        <span><?= $data['harga'] ?></span>
-                    </div>
-                    <img src="<?= $data['foto'] ?>" class="card-img" alt="<?= $data['komoditas'] ?>">
-                    <div class="card-body">
-                        <h4 class="card-title"><?= $data['komoditas'] ?></h4>
-                        <p class="card-text">Harga <?= $data['status'] ?>, <?= $data['selisih'] ?>     <?= $data['persen'] ?>
-                        </p>
+            <div class="card">
+                <div class="harga">
+                    <span><?= $data['harga'] ?> / KG</span>
+                </div>
+                <img src="<?= $data['foto'] ?>" class="card-img" alt="<?= $data['komoditas'] ?>">
+                <div class="card-body">
+                    <h4 class="card-title"><?= $data['komoditas'] ?></h4>
+                    <div class="status <?= $data['status'] ?>">
+                        <i class="<?php
+                        if ($data['status'] == 'naik') {
+                            echo 'bx bx-arrow-up-right-stroke';
+                        } else if ($data['status'] == 'turun') {
+                            echo 'bx bx-arrow-down-right-stroke';
+                        } else {
+                            echo 'bx bx-stroke-pen';
+                        }
+                        ?>"></i> <span class="card-text"><?= $data['status'] ?></span>
                     </div>
                 </div>
-            <?php endforeach; ?>
+            </div>
+        <?php endforeach; ?>
         </div>
     </div>
 

@@ -77,30 +77,52 @@ body {
 }
 
 .container {
-  margin: 20px;
+  max-width: 1600px;
+  margin: 20px auto;
 }
 
 .d-flex {
   display: flex;
 }
 
+.status{
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 8px;
+  padding: 2px 16px;
+  border-radius: 100px;
+  font-size: 1.35rem;
+  line-height: 175%;
+  color: #0e1422;
+  border: 1px solid #e6e7e8;
+  font-weight: 500;
+}
+
 .naik {
-  background-color: rgb(172, 32, 32);
-  color: white;
+  border-color: red;
+  color: red;
 }
 
 .turun {
-  background-color: rgb(43, 143, 43);
-  color: white;
+  border-color: green;
+  color: green;
+}
+
+.stabil {
+  border-color: #307bc4;
+  color: #307bc4;
 }
 
 .card {
   /* existing */
+  background-color: white;
   min-width: 230px;
   width: 230px;
-  box-shadow: 2px 8px 12px 1px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 8px rgba(0,0,0,0.5);
   border-radius: 5px;
-  margin: 12px;
+  margin: 20px;
 
   /* add this */
   position: relative;
@@ -122,6 +144,7 @@ body {
 }
 
 .card-title {
+  text-align: center;
   font-size: 15px;
   font-weight: bold;
 }
@@ -134,22 +157,18 @@ body {
   border-right: 1.6px solid rgba(0, 0, 0, 0.4);
 }
 
-.scroll-x {
-  overflow-x: scroll;
-  padding: 10px;
-}
-
 .harga {
   min-width: 230px;
   width: 230px;
   height: 130px;
+  text-align: center;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.2);
   /* transparan hitam */
   color: rgba(217, 209, 209, 0.751);
-  font-size: 30px;
+  font-size: 25px;
   font-weight: bold;
-  padding: 5px 10px;
+  padding-top: 11px;
   border-radius: 5px;
   z-index: 10;
   /* pastikan berada di atas gambar */
@@ -230,10 +249,13 @@ input[type="date"]:hover {
 .slider {
   position: relative;
   width: 100%;
+  max-width: 1600px;
+  max-height: 700px;
   aspect-ratio: 16 / 9;
-  /* agar responsif */
   overflow: hidden;
-  margin: 20px auto;
+  margin: 30px auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .slides {
@@ -247,4 +269,106 @@ input[type="date"]:hover {
   flex-shrink: 0;
   height: 100%;
   object-fit: fill;
+}
+
+.info-alert {
+  background-color: #e8f4fd;
+  border: 1px solid #b3e5fc;
+  color: #0277bd;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.filter-section {
+  width: 100%;
+  height: 42px;
+}
+
+.filter-section-container {
+  height: 42px;
+  display: flex;
+  max-width: 1600px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.filter-right {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.dropdown-btn {
+  height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 999px;
+  font-family: sans-serif;
+  font-size: 13.5px;
+  color: #333333;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.2s ease;
+  font-family: "Poppins";
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown-btn:hover {
+  background-color: #f7f7f7;
+}
+
+.chevron .bx-menu-filter {
+  position: relative;
+  top: 2px;
+}
+
+.search-container {
+  height: 42px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  color: #888888;
+  font-size: 18px;
+}
+
+.search-input {
+  height: 42px;
+  padding: 8px 16px 8px 36px;
+  border: 1px solid #e5e5e5;
+  border-radius: 999px;
+  font-size: 13.5px;
+  width: 300px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #307bc4;
+  box-shadow: 0 0 0 2px rgba(48, 123, 196, 0.2);
+}
+
+.info-terbaru-komoditas{
+  background-color: rgb(238, 229, 229);
+  border-radius: 15px;
+  max-width: 1400px;
+  padding: 20px;
+  margin: 30px auto;
+}
+
+.x-scroll{
+  overflow-x: scroll;
 }
