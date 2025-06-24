@@ -124,7 +124,7 @@
 
 .tambah {
   height: 42px;
-  padding: 8px 12px;
+  padding: 8px 15px;
   border-radius: 140px;
   border: 2px solid rgba(106, 203, 82, 0.92);
   background: rgba(106, 203, 82, 0.92);
@@ -136,6 +136,7 @@
   color: #fff;
   position: relative;
   top: 1px;
+  left: 1px;
 }
 
 .tambah:hover {
@@ -222,4 +223,33 @@
 .btn-aksi:hover {
   transform: scale(1.05);
   opacity: 0.95;
+}
+
+.form-control {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.group-control {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.label-control {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.input-control {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
 }
