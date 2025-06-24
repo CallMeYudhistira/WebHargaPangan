@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+}
+
+.app-navbar {
+  background: #fff;
+  width: 100%;
+  padding-block: 4px;
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.app-bar-container {
+  max-width: 1600px;
+  height: 100%;
+  margin: 0 auto;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left-section,
+.top-section {
+  display: flex;
+  align-items: center;
+  height: 74px;
+}
+
+.left-section .title,
+.top-section .title {
+  margin-left: 1.5rem;
+  font-weight: 700;
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.top-section .title {
+  position: relative;
+  right: 2.5px;
+}
+
+.main-icon {
+  height: 50px;
+}
+
+.right-section {
+  display: flex;
+  position: relative;
+}
+
+.group-menu-nav {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.menu-nav {
+  color: rgba(0, 0, 0, 0.68);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  gap: 6px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.menu-nav:hover {
+  color: rgba(0, 0, 0, 0.9);
+  transform: translateY(-2px);
+}
+
+.menu-nav.active {
+  color: rgba(0, 0, 0, 0.9);
+  font-weight: 500;
+}
+
+.kelola-komoditas {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding-bottom: 2.5rem;
+  margin-top: 1.75rem;
+}
+
+.kelola-aksi {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-container {
+  height: 42px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  color: #888888;
+  font-size: 18px;
+}
+
+.search-input {
+  height: 42px;
+  padding: 8px 16px 8px 36px;
+  border: 1px solid #e5e5e5;
+  border-radius: 999px;
+  font-size: 13.5px;
+  width: 300px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #307bc4;
+  box-shadow: 0 0 0 2px rgba(48, 123, 196, 0.2);
+}
+
+.tambah {
+  height: 42px;
+  padding: 8px 12px;
+  border-radius: 140px;
+  border: 2px solid rgba(106, 203, 82, 0.92);
+  background: rgba(106, 203, 82, 0.92);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tambah span {
+  color: #fff;
+  position: relative;
+  top: 1px;
+}
+
+.tambah:hover {
+  background: #fff;
+}
+
+.tambah:hover span {
+  color: rgba(106, 203, 82, 0.92);
+}
+
+.table-container {
+  margin-top: 1.75rem;
+  overflow-x: hidden;
+  background: white;
+  border-radius: 6px;
+  border-top: 1px solid rgba(0, 0, 0, 0.09);
+  border-right: 1px solid rgba(0, 0, 0, 0.09);
+  border-left: 1px solid rgba(0, 0, 0, 0.09);
+}
+
+.modern-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+
+.modern-table thead {
+  background: #f9fafb;
+}
+
+.modern-table th {
+  font-weight: 500;
+}
+
+.title-table {
+  position: relative;
+  left: 4px;
+}
+
+.modern-table th,
+.modern-table td {
+  padding: 15px 16px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+.modern-table input[type="checkbox"] {
+  transform: scale(1.1);
+}
+
+.icon-table {
+  font-size: 16.5px;
+  position: relative;
+  top: 4px;
+  left: 3px;
+}
