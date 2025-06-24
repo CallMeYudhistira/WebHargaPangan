@@ -4,11 +4,15 @@ $router = trim($_GET['route'] ?? "", "/");
 
 switch ($router) {
     case '':
-        require 'pages/beranda.php';
+        require 'pages/user/beranda.php';
         break;
 
-    case 'harga':
-        require 'pages/harga.php';
+    case 'komoditas':
+        require 'pages/user/komoditas.php';
+        break;
+
+    case 'statistik':
+        require 'pages/user/statistik.php';
         break;
 
     case 'admin':

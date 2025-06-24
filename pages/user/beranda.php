@@ -13,13 +13,13 @@ $decode = json_decode($json, true);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Informasi Pangan Kota Cimahi</title>
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="pages/user/assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
-    <?php include 'pages/navbar.php'; ?>
+    <?php include 'includes/navbar.php'; ?>
 
-        <h1 class="container">Informasi Harga Pangan Terkini</h1>
+    <h1 class="container">Informasi Harga Pangan Terkini</h1>
 
     <div>
         <img src="https://rsum.bandaacehkota.go.id/wp-content/uploads/2024/05/sayuran.jpg" alt="" class="long-image">

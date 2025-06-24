@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harga - Informasi Pangan Kota Cimahi</title>
-    <link href="assets/css/style.css" rel="stylesheet">
+    <title>Statistik - Informasi Pangan Kota Cimahi</title>
+    <link href="pages/user/assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
-    <?php include 'navbar.php' ?>
+    <?php include 'includes/navbar.php' ?>
 
     <div class="container">
         <h1>Tabel Harga Pangan</h1>

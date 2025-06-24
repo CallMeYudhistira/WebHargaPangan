@@ -39,36 +39,48 @@ body {
     margin: 10px auto;
 }
 
-header {
-    background-color: rgba(106, 203, 82, 0.92);
-    color: white;
+.app-bar {
+    background-color: rgb(255, 255, 255);
+    color: black;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 40px 0 40px;
     margin-bottom: 20px;
+    max-height: 200px;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.4);
 }
 
-ul {
+.app-bar h1{
+    margin-left: 25px;
+}
+
+.nav-item {
     display: flex;
     justify-content: space-between;
     list-style-type: none;
 }
 
-li {
+.nav-item li {
     margin: 15px;
 }
 
-li a {
-    color: rgb(216, 208, 208);
+.nav-item li a {
+    color: rgb(54, 48, 48);
     text-decoration: none;
     font-weight: 200;
+    transition: 0.4s;
 }
 
-li a.active {
-    color: white;
+.nav-item li a.active {
+    color: rgb(0, 0, 0);
     text-decoration: none;
     font-weight: 500;
+}
+
+.nav-item li a:hover {
+    font-size: 16.5px;
+    transition: 0.4s;
 }
 
 .container {
@@ -126,7 +138,7 @@ li a.active {
 }
 
 .vertical-line {
-    border-right: 1.8px solid rgb(255, 255, 255);
+    border-right: 1.6px solid rgba(0,0,0,0.4);
 }
 
 .scroll-x {
@@ -172,24 +184,31 @@ input[type="date"] {
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 6px;
+    transition: 0.4s;
 }
 
-.form-tampil{
+input[type="date"]:hover{
+    background: rgb(222, 218, 218);
+    color: black;
+    transition: 0.4s;
+}
+
+.form-tampil {
     padding: 15px;
 }
 
-.tabel-harga{
+.tabel-harga {
     width: 100%;
     margin: 25px auto;
 }
 
-.tabel-harga thead tr th{
+.tabel-harga thead tr th {
     border-top: 3px solid grey;
     border-bottom: 3px solid grey;
     padding: 10px;
 }
 
-.tabel-harga tbody tr td{
+.tabel-harga tbody tr td {
     padding: 10px;
     text-align: center;
     border-bottom: 1.7px solid gray;
@@ -198,11 +217,18 @@ input[type="date"] {
 .tampil-btn {
     margin-left: 20px;
     width: 100px;
-    background: rgb(90, 190, 70);
-    color: white;
-    padding: 10px;
-    border: none;
+    background: rgba(255, 255, 255, 0);
+    color: black;
+    padding: 12px;
+    border: 1px solid #ccc;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
+    transition: 0.4s;
+}
+
+.tampil-btn:hover{
+    background: rgb(222, 218, 218);
+    color: black;
+    transition: 0.4s;
 }
