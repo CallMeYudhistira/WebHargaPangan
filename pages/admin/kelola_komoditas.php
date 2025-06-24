@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Kelola Komoditas</title>
     <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../../assets/css/admin/style.css">
+    <link rel="stylesheet" href="pages/admin/assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -31,26 +31,24 @@
                 <thead>
                     <tr>
                         <th><input type="checkbox" /></th>
+                        <th class="title-table">No</th>
+                        <th class="title-table">Icon</th>
                         <th class="title-table">Nama Komoditas</th>
-                        <th class="title-table">Harga Rata-rata</th>
-                        <th class="title-table">Harga Tertinggi</th>
-                        <th class="title-table">Harga Terendah</th>
+                        <th class="title-table">Satuan</th>
+                        <th class="title-table">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td><input type="checkbox" checked /></td>
+                        <td>No</td>
+                        <td>🌶️</td>
                         <td>Cabe Merah</td>
-                        <td>12.500</td>
-                        <td>13.000</td>
-                        <td>12.000</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" /></td>
-                        <td>Cabe Keriting</td>
-                        <td>45.000</td>
-                        <td>47.000</td>
-                        <td>43.000</td>
+                        <td>KG</td>
+                        <td>
+                            <button class="btn-aksi edit"><i class='bx bx-edit'></i></button>
+                            <button class="btn-aksi delete"><i class='bx bx-trash'></i></button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
