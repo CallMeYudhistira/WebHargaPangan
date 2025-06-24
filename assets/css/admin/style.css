@@ -1,8 +1,8 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
 }
 
 .app-navbar {
@@ -85,10 +85,10 @@
 }
 
 .kelola-aksi {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .search-container {
@@ -174,7 +174,7 @@
 
 .title-table {
   position: relative;
-  left: 4px;
+  text-align: center;
 }
 
 .modern-table th,
@@ -193,4 +193,33 @@
   position: relative;
   top: 4px;
   left: 3px;
+}
+
+.btn-aksi {
+  border: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0 4px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-aksi i {
+  pointer-events: none;
+}
+
+.btn-aksi.edit {
+  background-color: #307bc4;
+  color: white;
+}
+
+.btn-aksi.delete {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.btn-aksi:hover {
+  transform: scale(1.05);
+  opacity: 0.95;
 }
