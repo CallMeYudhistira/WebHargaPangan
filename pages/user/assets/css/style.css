@@ -286,6 +286,7 @@ input[type="date"]:hover {
 .filter-section {
   width: 100%;
   height: 42px;
+  margin-top: 22px;
 }
 
 .filter-section-container {
@@ -346,7 +347,7 @@ input[type="date"]:hover {
 
 .search-input {
   height: 42px;
-  padding: 8px 16px 8px 36px;
+  padding: 4px 16px 4px 38px;
   border: 1px solid #e5e5e5;
   border-radius: 999px;
   font-size: 13.5px;
@@ -371,4 +372,15 @@ input[type="date"]:hover {
 
 .x-scroll{
   overflow-x: scroll;
+}
+
+.komoditas-grid{
+  max-width: 1600px;
+  padding-bottom: 2rem;
+  background-color: #fff;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+  gap: 24px;
+  margin-top: 1.75rem;
 }

@@ -1,3 +1,11 @@
+<?php
+
+include 'api.php';
+
+$decode = json_decode($json, true);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,6 +40,30 @@
         </div>
     </section>
 
+    <div class="komoditas-grid">
+        <?php foreach ($decode as $data): ?>
+            <div class="card">
+                <div class="harga">
+                    <span><?= $data['harga'] ?> / KG</span>
+                </div>
+                <img src="<?= $data['foto'] ?>" class="card-img" alt="<?= $data['komoditas'] ?>">
+                <div class="card-body">
+                    <h4 class="card-title"><?= $data['komoditas'] ?></h4>
+                    <div class="status <?= $data['status'] ?>">
+                        <i class="<?php
+                        if ($data['status'] == 'naik') {
+                            echo 'bx bx-arrow-up-right-stroke';
+                        } else if ($data['status'] == 'turun') {
+                            echo 'bx bx-arrow-down-right-stroke';
+                        } else {
+                            echo 'bx bx-stroke-pen';
+                        }
+                        ?>"></i> <span class="card-text"><?= $data['status'] ?></span>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
 </body>
 
 </html>

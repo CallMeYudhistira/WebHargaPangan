@@ -35,7 +35,7 @@ $decode = json_decode($json, true);
     <div><br></div>
 
     <div class="info-terbaru-komoditas">
-        <h1 style="text-align: center; position: sticky;">Berikut Harga Pangan Terbaru</h1>
+        <h1 style="text-align: center;">Berikut Harga Pangan Terbaru</h1>
         <div class="d-flex x-scroll" style="padding: 15px;">
             <?php foreach ($decode as $data): ?>
             <div class="card">
