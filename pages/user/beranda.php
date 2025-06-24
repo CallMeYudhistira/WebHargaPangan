@@ -21,9 +21,17 @@ $decode = json_decode($json, true);
 
     <h1 class="container">Informasi Harga Pangan Terkini</h1>
 
-    <div>
-        <img src="https://rsum.bandaacehkota.go.id/wp-content/uploads/2024/05/sayuran.jpg" alt="" class="long-image">
+    <div class="slider">
+        <div class="slides">
+            <img src="https://cdn.pixabay.com/photo/2022/01/18/16/30/vegetables-6947442_1280.jpg"
+                class="slide active" />
+            <img src="https://cdn.pixabay.com/photo/2015/04/27/15/01/vegetables-742095_1280.jpg" class="slide" />
+            <img src="https://cdn.pixabay.com/photo/2015/05/04/10/16/vegetables-752153_1280.jpg" class="slide" />
+            <img src="https://cdn.pixabay.com/photo/2018/06/30/15/33/vegetables-3507843_1280.jpg" class="slide" />
+        </div>
     </div>
+
+    <script src="script.js"></script>
 
     <div class="container">
         <div class="d-flex scroll-x">
@@ -42,27 +50,26 @@ $decode = json_decode($json, true);
             <?php endforeach; ?>
         </div>
     </div>
-    <!-- <script>
-        window.addEventListener("DOMContentLoaded", async (e) => {
-            const res = await fetch("../api.php")
-            const data = await res.json();
-            const container = document.querySelector(".knyt");
-            container.innerHTML = "";
-            data.forEach(element => {
-                container.innerHTML += `<div class="card naik">
-                <div class="harga">
-                    <span>Rp. ${element.type_shit}</span>
-                </div>
-                <img src="https://pekalongankota.go.id/upload/berita/berita_20250110020806.jpeg" class="card-img"
-                    alt="Cabai Merah Keriting">
-                <div class="card-body">
-                    <h4 class="card-title">${element.id}</h4>
-                    <p class="card-text">Harga Naik + ${new Date()}</p>
-                </div>
-            </div>`
-            });
-        })
-    </script> -->
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelector(".slides");
+        const totalSlides = document.querySelectorAll(".slide").length;
+
+        function updateSlidePosition() {
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlidePosition();
+        }
+
+        setInterval(() => {
+            nextSlide();
+        }, 4000);
+
+    </script>
 
 </body>
 
