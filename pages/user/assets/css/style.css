@@ -19,7 +19,7 @@
 }
 
 * {
-  font-family: "figtree", "poppins", "montserrat", "open sans";
+  font-family: "poppins", "montserrat", "open sans", "figtree";
 }
 
 body {
@@ -163,7 +163,8 @@ body {
 }
 
 .icon-nav {
-  width: 50px;
+  width: auto;
+  height: 70px;
   margin: 10px;
 }
 
@@ -229,7 +230,8 @@ input[type="date"]:hover {
 .slider {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9; /* agar responsif */
+  aspect-ratio: 16 / 9;
+  /* agar responsif */
   overflow: hidden;
   margin: 20px auto;
 }
