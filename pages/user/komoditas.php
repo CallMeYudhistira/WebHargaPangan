@@ -44,7 +44,7 @@ $decode = json_decode($json, true);
 
     <div class="komoditas-grid">
         <?php foreach ($decode as $data): ?>
-            <div class="card" onclick="chartModal()">
+            <div class="card" onclick="chartModal()" style="margin: 5px;">
                 <div class="harga">
                     <span><?= $data['harga'] ?> / KG</span>
                 </div>

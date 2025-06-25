@@ -378,7 +378,7 @@ input[type="date"]:hover {
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
-  gap: 24px;
+  gap: 12px;
   margin-top: 1.75rem;
 }
 
