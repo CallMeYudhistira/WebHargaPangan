@@ -38,31 +38,26 @@ class CommodityService {
     unit.value = data.data.unit;
   }
 
-  static async InsertOrUpdateCommodity(e) {
-    event.preventDefault();
+  static async InsertOrUpdateCommodity() {
     const name = document.querySelector('[name="name"]').value;
     const icon = document.querySelector('[name="icon"]').value;
     const unit = document.querySelector('[name="unit"]').value;
+    const form = document.getElementById("commodity-form");
+    const formData = new FormData(form);
+    formData.append("id", this.id);
 
     if (this.condition === "new") {
       const res = await fetch("api/commodities/insert.php", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, icon, unit }),
+        body: formData,
       });
-      window.location.reload();
     } else {
       const res = await fetch("api/commodities/update.php", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ id: this.id, name, icon, unit }),
+        body: formData,
       });
-      window.location.reload();
     }
+    window.location.reload();
   }
 
   static async DeleteCommodity(id) {

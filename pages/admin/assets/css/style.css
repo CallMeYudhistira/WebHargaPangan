@@ -196,6 +196,20 @@
   left: 3px;
 }
 
+.link-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  gap: 6px;
+}
+
+.link-image .bx {
+  font-size: 18px;
+  position: relative;
+  bottom: 1px;
+}
+
 .btn-aksi {
   border: none;
   padding: 8px 10px;
@@ -252,4 +266,19 @@
   border-radius: 6px;
   font-size: 14px;
   outline: none;
+}
+
+.input-control.file-control {
+  color: #757575;
+  font-size: 14px;
+}
+
+.input-control.file-control::-webkit-file-upload-button {
+  font-weight: 500;
+  margin-right: 1rem;
+  color: #333;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
 }
