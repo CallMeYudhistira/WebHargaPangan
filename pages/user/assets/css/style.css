@@ -30,15 +30,15 @@ body {
 }
 
 .app-bar {
+  width: 100%;
+  height: fit-content;
   background-color: rgb(255, 255, 255);
   color: black;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 40px 0 40px;
   margin-bottom: 20px;
   max-height: 200px;
-  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.4);
 }
 
 .app-bar h1 {
