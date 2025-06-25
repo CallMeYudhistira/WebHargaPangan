@@ -163,7 +163,7 @@ body {
   height: 130px;
   text-align: center;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.5);
   /* transparan hitam */
   color: rgba(217, 209, 209, 0.751);
   font-size: 25px;
@@ -177,7 +177,7 @@ body {
 
 .harga:hover {
   cursor: default;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.7);
   color: rgb(233, 224, 224);
 }
 
@@ -383,4 +383,67 @@ input[type="date"]:hover {
   grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
   gap: 24px;
   margin-top: 1.75rem;
+}
+
+canvas#hargaChart {
+  max-width: 400px;
+  max-height: 200px;
+}
+
+.select-pasar-filter option {
+  appearance: none;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #444;
+  border-radius: 8px;
+  font-size: 14x;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+}
+
+.select-pasar,
+.select-kondisi-harga {
+  width: 100%;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg fill='black' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 18px;
+  padding: 0.85rem 0.75rem;
+  padding-inline-start: 1.2rem;
+  border-radius: 12px;
+  outline: none;
+  font-size: 14px;
+  flex-grow: 1;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  color: #333;
+}
+
+.form-filter {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.view-detail {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  background: black;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
 }
