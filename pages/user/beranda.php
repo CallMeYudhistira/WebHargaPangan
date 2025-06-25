@@ -20,45 +20,47 @@ $decode = json_decode($json, true);
 <body>
     <?php include 'includes/navbar.php'; ?>
 
-    <h1 class="container" style="font-size: 38px;">Informasi Harga Pangan Terkini</h1>
+    <div class="container animate-fadein">
+        <h1 style="font-size: 38px;">Informasi Harga Pangan Terkini</h1>
 
-    <div class="slider">
-        <div class="slides">
-            <img src="https://cdn.pixabay.com/photo/2022/01/18/16/30/vegetables-6947442_1280.jpg"
-                class="slide active" />
-            <img src="https://cdn.pixabay.com/photo/2015/04/27/15/01/vegetables-742095_1280.jpg" class="slide" />
-            <img src="https://cdn.pixabay.com/photo/2015/05/04/10/16/vegetables-752153_1280.jpg" class="slide" />
-            <img src="https://cdn.pixabay.com/photo/2018/06/30/15/33/vegetables-3507843_1280.jpg" class="slide" />
-        </div>
-    </div>
-
-    <div><br></div>
-
-    <div class="info-terbaru-komoditas">
-        <h1 style="text-align: center;">Berikut Harga Pangan Terbaru</h1>
-        <div class="d-flex x-scroll" style="padding: 15px;">
-            <?php foreach ($decode as $data): ?>
-            <div class="card">
-                <div class="harga">
-                    <span><?= $data['harga'] ?> / KG</span>
-                </div>
-                <img src="<?= $data['foto'] ?>" class="card-img" alt="<?= $data['komoditas'] ?>">
-                <div class="card-body">
-                    <h4 class="card-title"><?= $data['komoditas'] ?></h4>
-                    <div class="status <?= $data['status'] ?>">
-                        <i class="<?php
-                        if ($data['status'] == 'naik') {
-                            echo 'bx bx-arrow-up-right-stroke';
-                        } else if ($data['status'] == 'turun') {
-                            echo 'bx bx-arrow-down-right-stroke';
-                        } else {
-                            echo 'bx bx-stroke-pen';
-                        }
-                        ?>"></i> <span class="card-text"><?= $data['status'] ?></span>
-                    </div>
-                </div>
+        <div class="slider">
+            <div class="slides">
+                <img src="https://cdn.pixabay.com/photo/2022/01/18/16/30/vegetables-6947442_1280.jpg"
+                    class="slide active" />
+                <img src="https://cdn.pixabay.com/photo/2015/04/27/15/01/vegetables-742095_1280.jpg" class="slide" />
+                <img src="https://cdn.pixabay.com/photo/2015/05/04/10/16/vegetables-752153_1280.jpg" class="slide" />
+                <img src="https://cdn.pixabay.com/photo/2018/06/30/15/33/vegetables-3507843_1280.jpg" class="slide" />
             </div>
-        <?php endforeach; ?>
+        </div>
+
+        <div><br></div>
+
+        <div class="info-terbaru-komoditas">
+            <h1 style="text-align: center;">Berikut Harga Pangan Terbaru</h1>
+            <div class="d-flex x-scroll" style="padding: 15px;">
+                <?php foreach ($decode as $data): ?>
+                    <div class="card" <?= ($data['status'] == 'stabil') ? 'style="display: none;"' : '' ?>>
+                        <div class="harga">
+                            <span><?= $data['harga'] ?> / KG</span>
+                        </div>
+                        <img src="<?= $data['foto'] ?>" class="card-img" alt="<?= $data['komoditas'] ?>">
+                        <div class="card-body">
+                            <h4 class="card-title"><?= $data['komoditas'] ?></h4>
+                            <div class="status <?= $data['status'] ?>">
+                                <i class="<?php
+                                if ($data['status'] == 'naik') {
+                                    echo 'bx bx-arrow-up-right-stroke';
+                                } else if ($data['status'] == 'turun') {
+                                    echo 'bx bx-arrow-down-right-stroke';
+                                } else {
+                                    echo 'bx bx-stroke-pen';
+                                }
+                                ?>"></i> <span class="card-text"><?= $data['status'] ?></span>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
         </div>
     </div>
 

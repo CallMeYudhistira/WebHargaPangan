@@ -22,7 +22,7 @@ $decode = json_decode($json, true);
 <body>
     <?php include 'includes/navbar.php' ?>
 
-    <section class="filter-section">
+    <section class="filter-section animate-fadein">
         <div class="filter-section-container">
             <div class="info-alert">
                 📢 Menampilkan semua informasi harga pangan di kota Cimahi!
@@ -44,7 +44,7 @@ $decode = json_decode($json, true);
 
     <div class="komoditas-grid">
         <?php foreach ($decode as $data): ?>
-            <div class="card" onclick="chartModal()" style="margin: 0; margin-top: 12px;">
+            <div class="card animate-fadein" onclick="chartModal()" style="margin: 0; margin-top: 12px;">
                 <div class="harga">
                     <span><?= $data['harga'] ?> / KG</span>
                 </div>

@@ -488,3 +488,18 @@ canvas#hargaChart {
   opacity: 0;
   cursor: pointer;
 }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadein {
+  animation: fadeInUp 1s ease-out both;
+}

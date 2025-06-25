@@ -22,7 +22,7 @@ $now = date('Y-m');
 <body>
     <?php include 'includes/navbar.php' ?>
 
-    <div class="container">
+    <div class="container animate-fadein">
         <h1>Tabel Harga Pangan</h1>
 
         <div class="form-tampil">
