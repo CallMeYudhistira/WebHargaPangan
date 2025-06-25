@@ -62,6 +62,17 @@ $decode = json_decode($json, true);
                 <?php endforeach; ?>
             </div>
         </div>
+
+            <h1 style="margin-top: 80px;">Simulasi Belanja - Keranjang</h1>
+
+        <div class="keranjang-container">
+            <div class="list-komoditas">
+                <h2>Ini List Barang</h2>
+            </div>
+            <div class="keranjang">
+                <h2>Ini Isi Keranjang</h2>
+            </div>
+        </div>
     </div>
 
     <?php include 'includes/footer.php'; ?>

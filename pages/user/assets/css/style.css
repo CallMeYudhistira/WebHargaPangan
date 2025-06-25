@@ -341,7 +341,6 @@ label {
 }
 
 .info-terbaru-komoditas{
-  background-color: rgb(245, 245, 245);
   border-radius: 15px;
   max-width: 1400px;
   padding: 20px;
@@ -514,4 +513,22 @@ canvas#hargaChart {
 .footer-copyright{
   text-align: center;
   padding: 18px;
+}
+
+.keranjang-container{
+  display: flex;
+}
+
+.list-komoditas{
+  float: left;
+  width: 60%;
+  border: 2px solid #ccc;
+  padding: 15px;
+}
+
+.keranjang{
+  float: right;
+  width: 40%;
+  padding: 15px;
+  border: 2px solid #ccc;
 }
