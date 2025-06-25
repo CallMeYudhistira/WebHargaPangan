@@ -32,9 +32,9 @@
                     <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
                 </header>
                 <main class="modal__content" id="modal-komoditas-content">
-                    <form class="form-control" method="POST" onsubmit="CommodityService.InsertOrUpdateCommodity(event)">
+                    <form class="form-control" id="commodity-form" method="POST" enctype="multipart/form-data">
                         <div class="group-control">
-                            <label for="name" class="label-control">Name :</label>
+                            <label for="name" class="label-control">Nama :</label>
                             <input type="text" name="name" placeholder="Nama Komoditas" class="input-control" required
                                 autocomplete="no">
                         </div>
@@ -44,9 +44,13 @@
                                 required autocomplete="no">
                         </div>
                         <div class="group-control">
-                            <label for="unit" class="label-control">Unit :</label>
+                            <label for="unit" class="label-control">Satuan :</label>
                             <input type="text" name="unit" placeholder="Satuan (contoh: KG)" class="input-control"
                                 required autocomplete="no">
+                        </div>
+                        <div class="group-control">
+                            <label for="image" class="label-control">Gambar :</label>
+                            <input type="file" name="image" class="input-control file-control">
                         </div>
                 </main>
                 <footer class="modal__footer">
@@ -80,6 +84,7 @@
                         <th class="title-table">Icon</th>
                         <th class="title-table">Nama Komoditas</th>
                         <th class="title-table">Satuan</th>
+                        <th class="title-table">Gambar</th>
                         <th class="title-table">Aksi</th>
                     </tr>
                 </thead>
@@ -94,6 +99,10 @@
                             <td style="font-size: 17px"><?= $commodity["icon"] ?></td>
                             <td><?= $commodity["name"] ?></td>
                             <td><?= $commodity["unit"] ?></td>
+                            <td>
+                                <a href="public/images/<?= $commodity["image"] ?>" class="link-image">View Image <i
+                                        class='bx bx-image-alt'></i></a>
+                            </td>
                             <td>
                                 <button class="btn-aksi edit"
                                     onclick="openModal('modal-komoditas'); CommodityService.HandleEdit(<?= $commodity['id'] ?>);"><i
@@ -111,6 +120,12 @@
     <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="pages/admin/services/CommodityService.js"></script>
+    <script>
+        document.getElementById("commodity-form").addEventListener("submit", e => {
+            e.preventDefault();
+            CommodityService.InsertOrUpdateCommodity();
+        })
+    </script>
 </body>
 
 </html>
