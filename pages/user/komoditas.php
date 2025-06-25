@@ -44,7 +44,7 @@ $decode = json_decode($json, true);
 
     <div class="komoditas-grid">
         <?php foreach ($decode as $data): ?>
-            <div class="card" onclick="chartModal()" style="margin: 5px;">
+            <div class="card" onclick="chartModal()" style="margin: 0; margin-top: 12px;">
                 <div class="harga">
                     <span><?= $data['harga'] ?> / KG</span>
                 </div>
@@ -52,16 +52,20 @@ $decode = json_decode($json, true);
                 <div class="view-detail">View Detail</div>
                 <div class="card-body">
                     <h4 class="card-title"><?= $data['komoditas'] ?></h4>
-                    <div class="status <?= $data['status'] ?>">
-                        <i class="<?php
-                        if ($data['status'] == 'naik') {
-                            echo 'bx bx-arrow-up-right-stroke';
-                        } else if ($data['status'] == 'turun') {
-                            echo 'bx bx-arrow-down-right-stroke';
-                        } else {
-                            echo 'bx bx-stroke-pen';
-                        }
-                        ?>"></i> <span class="card-text"><?= $data['status'] ?></span>
+                    <div class="info-grid">
+                        <div class="status <?= $data['status'] ?>">
+                            <i class="<?php
+                            if ($data['status'] == 'naik') {
+                                echo 'bx bx-arrow-up-right-stroke';
+                            } else if ($data['status'] == 'turun') {
+                                echo 'bx bx-arrow-down-right-stroke';
+                            } else {
+                                echo 'bx bx-stroke-pen';
+                            }
+                            ?>"></i> <span class="card-text"><?= $data['status'] ?></span>
+                        </div>
+                        <div class="vertical-line" style="height: 30px;"></div>
+                        <span><?= $data['persen'] ?></span>
                     </div>
                 </div>
             </div>
