@@ -129,6 +129,8 @@ $decode = json_decode($json, true);
     </div>
     <!-- Modal Filter End -->
 
+    <?php include 'includes/footer.php'; ?>
+
     <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
     <script>
         document.querySelector(".filter-komoditas").addEventListener("click", () => {

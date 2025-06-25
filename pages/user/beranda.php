@@ -64,6 +64,8 @@ $decode = json_decode($json, true);
         </div>
     </div>
 
+    <?php include 'includes/footer.php'; ?>
+
     <script>
         let currentSlide = 0;
         const slides = document.querySelector(".slides");

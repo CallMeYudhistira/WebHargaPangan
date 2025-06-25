@@ -341,11 +341,12 @@ label {
 }
 
 .info-terbaru-komoditas{
-  background-color: rgb(238, 229, 229);
+  background-color: rgb(245, 245, 245);
   border-radius: 15px;
   max-width: 1400px;
   padding: 20px;
   margin: 30px auto;
+  border: 1px solid #ccc;
 }
 
 .x-scroll{
@@ -502,4 +503,15 @@ canvas#hargaChart {
 
 .animate-fadein {
   animation: fadeInUp 1s ease-out both;
+}
+
+.footer-text{
+  text-align: center;
+  padding: 25px;
+  font-size: 18px;
+}
+
+.footer-copyright{
+  text-align: center;
+  padding: 18px;
 }
