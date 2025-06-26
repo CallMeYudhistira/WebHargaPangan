@@ -126,8 +126,8 @@
   height: 42px;
   padding: 8px 15px;
   border-radius: 140px;
-  border: 2px solid rgba(106, 203, 82, 0.92);
-  background: rgba(106, 203, 82, 0.92);
+  border: 2px solid #307bc4;
+  background: #307bc4;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -144,7 +144,7 @@
 }
 
 .tambah:hover span {
-  color: rgba(106, 203, 82, 0.92);
+  color: #307bc4;
 }
 
 .table-container {
@@ -225,7 +225,7 @@
 }
 
 .btn-aksi.edit {
-  background-color: #307bc4;
+  background-color: #17a2b8;
   color: white;
 }
 
@@ -281,4 +281,14 @@
   padding: 6px 12px;
   border-radius: 6px;
   cursor: pointer;
+}
+
+.input-control.select-control {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  color: #333;
+  padding-right: 40px;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/9/9d/Arrow-down.svg") no-repeat right 14px center;
+  background-size: 16px;
 }
