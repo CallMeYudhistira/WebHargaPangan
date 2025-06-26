@@ -23,6 +23,10 @@ switch ($router) {
         require 'pages/admin/kelola_komoditas.php';
         break;
 
+    case 'admin/kelola-pasar':
+        require 'pages/admin/kelola_pasar.php';
+        break;
+
     default:
         http_response_code(404);
         echo "404 Not Found";
