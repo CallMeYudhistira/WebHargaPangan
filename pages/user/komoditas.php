@@ -157,19 +157,16 @@ $result = $connection->query($sql);
         });
 
         SELECT_KECAMATAN.addEventListener('change', function () {
-            const kecamatanId = SELECT_KECAMATAN.value;
-            this.kecamatanId = kecamatanId;
+            kecamatanId = SELECT_KECAMATAN.value;
             FilterService.GetMarkets(kecamatanId);
         });
 
         SELECT_KONDISI.addEventListener('change', function () {
-            const kondisi = SELECT_KONDISI.value;
-            this.kondisi = kondisi;
+            kondisi = SELECT_KONDISI.value;
         });
 
         SELECT_PASAR.addEventListener('change', function () {
-            const marketId = SELECT_PASAR.value;
-            this.marketId = marketId;
+            marketId = SELECT_PASAR.value;
         });
 
         const BUTTON_FILTER = document.getElementById("submit-filter");
