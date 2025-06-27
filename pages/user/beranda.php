@@ -1,8 +1,10 @@
 <?php
 
-include 'api.php';
+require_once 'configs/connection.php';
 
-$decode = json_decode($json, true);
+$sql = "SELECT market_commodities.id_commodity, commodities.name as commodity_name, commodities.icon, commodities.unit, commodities.image, market_commodities.price, market_commodities.status, market_commodities.percent FROM market_commodities INNER JOIN commodities ON commodities.id = market_commodities.id_commodity INNER JOIN markets ON markets.id = market_commodities.id_market";
+
+$result = $connection->query($sql);
 
 ?>
 
@@ -38,19 +40,19 @@ $decode = json_decode($json, true);
         <div class="info-terbaru-komoditas">
             <h1 style="text-align: center;">Berikut Harga Pangan Terbaru</h1>
             <div class="d-flex x-scroll" style="padding: 15px;">
-                <?php foreach ($decode as $data): ?>
+                <?php foreach ($result as $data): ?>
                     <div class="card" <?= ($data['status'] == 'stabil') ? 'style="display: none;"' : '' ?>>
                         <div class="harga">
-                            <span><?= $data['harga'] ?> / KG</span>
+                            <span>Rp. <?= $data['price'] ?> / <?= $data['unit'] ?></span>
                         </div>
-                        <img src="<?= $data['foto'] ?>" class="card-img" alt="<?= $data['komoditas'] ?>">
+                        <img src="public/images/<?= $data['image'] ?>" class="card-img" alt="<?= $data['commodity_name'] ?>">
                         <div class="card-body">
-                            <h4 class="card-title"><?= $data['komoditas'] ?></h4>
+                            <h4 class="card-title"><?= $data['icon'] ?> <?= $data['commodity_name'] ?></h4>
                             <div class="status <?= $data['status'] ?>">
                                 <i class="<?php
-                                if ($data['status'] == 'naik') {
+                                if ($data['status'] == 'Naik') {
                                     echo 'bx bx-arrow-up-right-stroke';
-                                } else if ($data['status'] == 'turun') {
+                                } else if ($data['status'] == 'Turun') {
                                     echo 'bx bx-arrow-down-right-stroke';
                                 } else {
                                     echo 'bx bx-stroke-pen';
@@ -63,7 +65,7 @@ $decode = json_decode($json, true);
             </div>
         </div>
 
-            <h1 style="margin-top: 80px;">Simulasi Belanja - Keranjang</h1>
+        <h1 style="margin-top: 80px;">Simulasi Belanja - Keranjang</h1>
 
         <div class="keranjang-container">
             <div class="list-komoditas">

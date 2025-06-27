@@ -2,7 +2,7 @@
 
 $data = [];
 
-for ($i = 1; $i <= 12; $i++) { 
+for ($i = 1; $i <= 4; $i++) { 
     if($i % 2 == 0){
         $komoditas = 'Cabai Keriting Merah';
         $status = 'naik';
