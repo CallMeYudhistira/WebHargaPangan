@@ -93,7 +93,6 @@ require_once 'configs/connection.php';
         window.addEventListener('load', function () {
             FilterService.GetStats(inp_bulan.value, marketId);
         });
-
     </script>
 
 </body>

@@ -307,7 +307,6 @@ label {
   left: 12px;
   color: #888888;
   font-size: 18px;
-  flex-direction: column-reverse;
 }
 
 .search-input {

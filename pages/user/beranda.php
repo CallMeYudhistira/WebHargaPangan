@@ -41,7 +41,7 @@ $result = $connection->query($sql);
             <h1 style="text-align: center;">Berikut Harga Pangan Terbaru</h1>
             <div class="d-flex x-scroll" style="padding: 15px;">
                 <?php foreach ($result as $data): ?>
-                    <div class="card" <?= ($data['status'] == 'stabil') ? 'style="display: none;"' : '' ?>>
+                    <div class="card animate-fadein" <?= ($data['status'] == 'stabil') ? 'style="display: none;"' : '' ?>>
                         <div class="harga">
                             <span>Rp. <?= $data['price'] ?> / <?= $data['unit'] ?></span>
                         </div>
@@ -97,6 +97,9 @@ $result = $connection->query($sql);
             nextSlide();
         }, 4000);
 
+        document.querySelectorAll(".card").forEach((el, i) => {
+            el.style.animationDelay = `${i * 0.2}s`;
+        });
     </script>
 
 </body>

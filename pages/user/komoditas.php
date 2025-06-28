@@ -47,7 +47,7 @@ $result = $connection->query($sql);
     <div class="komoditas-grid" id="komoditas-grid">
         <?php foreach ($result as $data): ?>
             <div>
-                <div class="card animate-fadein" onclick="chartModal()" style="margin: 0; margin-top: 12px;">
+                <div class="card animate-fadein" onclick="ChartService.ChartModal('<?= $data['commodity_name'] ?>', '<?= $data['id_commodity'] ?>')" style="margin: 0; margin-top: 12px;">
                     <div class="harga">
                         <span>Rp. <?= $data['price'] ?> / <?= $data['unit'] ?></span>
                     </div>
@@ -82,7 +82,7 @@ $result = $connection->query($sql);
             <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
                 <header class="modal__header">
                     <h2 class="modal__title" id="modal-chart-title">
-                        Analisis Harga Bawang Merah
+                        Nama Komoditas
                     </h2>
                     <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
                 </header>
@@ -142,6 +142,7 @@ $result = $connection->query($sql);
 
     <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
     <script src="pages/user/services/FilterService.js"></script>
+    <script src="pages/user/services/ChartService.js"></script>
     <script>
         let marketId = 'all';
         let kecamatanId = 'all';
@@ -181,77 +182,9 @@ $result = $connection->query($sql);
             });
         });
 
-        const INPUT_SEARCH = document.query
-
         document.querySelectorAll(".card").forEach((el, i) => {
             el.style.animationDelay = `${i * 0.2}s`;
         });
-
-        const chartModal = () => {
-            MicroModal.show("modal-chart", {
-                disableScroll: true,
-                disableFocus: true
-            });
-
-            const ctx = document.getElementById('hargaChart').getContext('2d');
-
-            const tanggal = ['17 Jun 2025', '18 Jun 2025', '19 Jun 2025', '20 Jun 2025', '21 Jun 2025', '22 Jun 2025', '23 Jun 2025'];
-            const harga = [10000, 10200, 9800, 10100, 9900, 10500, 10300];
-
-            const gradient = ctx.createLinearGradient(0, 0, 0, 200);
-            gradient.addColorStop(0, 'rgba(0, 200, 83, 0.2)');
-            gradient.addColorStop(1, 'rgba(0, 200, 83, 0)');
-
-            new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: tanggal,
-                    datasets: [{
-                        label: 'Harga',
-                        data: harga,
-                        fill: true,
-                        backgroundColor: gradient,
-                        borderColor: '#00c853',
-                        tension: 0.4,
-                        borderWidth: 2,
-                        pointRadius: 0,
-                        pointHoverRadius: 5
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            titleFont: {
-                                family: 'Poppins',
-                                size: 13,
-                                weight: '500'
-                            },
-                            bodyFont: {
-                                family: 'Poppins',
-                                size: 12,
-                                weight: '400'
-                            },
-                            callbacks: {
-                                label: function (context) {
-                                    const value = context.parsed.y;
-                                    return 'Harga: Rp ' + value.toLocaleString();
-                                }
-                            }
-                        }
-                    },
-                    interaction: {
-                        mode: 'index',
-                        intersect: false
-                    },
-                    scales: {
-                        x: { display: false },
-                        y: { display: false }
-                    }
-                }
-            });
-        }
     </script>
 </body>
 
