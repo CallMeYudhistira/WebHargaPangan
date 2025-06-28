@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && $data) {
 
     $new = $connection->query("UPDATE market_commodities SET id_market='$market', id_commodity='$commodity', price='$price', status='$status', percent='$percent', id_user='$user', update_at=NOW() WHERE id='$id';");
 
-    $log = $connection->query("INSERT INTO price_logs SELECT null, '$user', '$commodity', '$oldPrice', market_commodities.price, '$oldStatus', market_commodities.status, '$oldPercent', market_commodities.percent, NOW() FROM market_commodities WHERE id = '$id'");
+    $log = $connection->query("INSERT INTO price_logs SELECT null, '$user', '$id', '$oldPrice', market_commodities.price, '$oldStatus', market_commodities.status, '$oldPercent', market_commodities.percent, NOW() FROM market_commodities WHERE id = '$id'");
 
     if ($new AND $log) {
         http_response_code(200);
