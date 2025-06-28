@@ -181,6 +181,8 @@ $result = $connection->query($sql);
             });
         });
 
+        const INPUT_SEARCH = document.query
+
         document.querySelectorAll(".card").forEach((el, i) => {
             el.style.animationDelay = `${i * 0.2}s`;
         });

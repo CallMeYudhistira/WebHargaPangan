@@ -1,11 +1,7 @@
 class FilterService {
-    static id;
-
     static async GetMarkets(id) {
         const select_pasar = document.querySelector('.select-pasar');
         const placeholderPasar = document.getElementById('select-pasar-placeholder');
-
-        this.id = id;
 
         placeholderPasar.innerText = "Loading... 🔃";
         placeholderPasar.selected = true;
@@ -29,7 +25,6 @@ class FilterService {
     }
 
     static async FilteredCommodities(id_market, status, id_kecamatan) {
-        console.log(id_market + status + id_kecamatan);
         const res = await fetch(`api/filter/filtered_commodities.php?id_market=${id_market}&status=${status}&id_kecamatan=${id_kecamatan}`);
         const json = await res.json();
 
@@ -67,6 +62,35 @@ class FilterService {
             });
         } else {
             container.innerHTML = '<h4 align="center">Data tidak ditemukan</h4>';
+        }
+    }
+
+    static async GetStats(month, marketId){
+        const container = document.getElementById("table-body");
+        container.innerHTML = '<tr><td colspan="7"><h4 align="center">Loading... 🔃</h4></td></tr>';
+
+        const res = await fetch(`api/filter/get_stats.php?month=${month}&marketId=${marketId}`);
+        const json = await res.json();
+
+        container.innerHTML = "";
+        let i = 1;
+
+        if (json.data && json.data.length > 0) {
+            json.data.forEach(item => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `<td><input type="checkbox" /></td>
+                                <td><?= ${i} ?></td>
+                                <td><img src="public/images/${item.image}" alt="${item.name}" class="table-image">
+                                </td>
+                                <td>${item.icon} ${item.name}</td>
+                                <td>${parseInt(item.avg_price)} / KG</td>
+                                <td>${parseInt(item.max_price)} / KG</td>
+                                <td>${parseInt(item.min_price)} / KG</td>`;
+                container.appendChild(tr);
+                i++;
+            });
+        } else {
+            container.innerHTML = '<tr><td colspan="7"><h4 align="center">Data tidak ditemukan</h4></td></tr>';
         }
     }
 }

@@ -1,10 +1,8 @@
 <?php
 
-require_once 'api.php';
-
-$data = json_decode($json, true);
-
 $now = date('Y-m');
+
+require_once 'configs/connection.php';
 
 ?>
 
@@ -38,8 +36,11 @@ $now = date('Y-m');
                         <i class='bx bx-menu-filter'></i>
                     </span>
                     <select class="select-pasar-filter">
-                        <option value="" data-pasar="Semua Pasar">Semua Pasar</option>
-                        <option value="" data-pasar="Pasar Atas">Pasar Atas</option>
+                        <option value="all">Semua Pasar</option>
+                        <?php $result = $connection->query('SELECT * FROM markets');
+                        foreach ($result as $market): ?>
+                            <option value="<?= $market['id'] ?>"><?= $market['name'] ?></option>
+                        <?php endforeach; ?>
                     </select>
                     <p class="pasar-filter-text">Semua Pasar</p>
                 </div>
@@ -58,22 +59,8 @@ $now = date('Y-m');
                             <th class="title-table">Harga Terendah</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <?php
-                        $i = 1;
-                        foreach ($data as $a):
-                            ?>
-                            <tr>
-                                <td><input type="checkbox" /></td>
-                                <td><?= $i ?></td>
-                                <td style="font-size: 17px"><img src="<?= $a['foto'] ?>" alt="<?= $a['komoditas'] ?>"
-                                        style="width: 200px; border-radius: 12px;"></td>
-                                <td><?= $a['komoditas'] ?></td>
-                                <td><?= $a['harga'] ?> / KG</td>
-                                <td><?= $a['tinggi'] ?> / KG</td>
-                                <td><?= $a['rendah'] ?> / KG</td>
-                            </tr>
-                            <?php $i++; endforeach ?>
+                    <tbody id="table-body">
+
                     </tbody>
                 </table>
             </div>
@@ -81,6 +68,33 @@ $now = date('Y-m');
     </div>
 
     <?php include 'includes/footer.php'; ?>
+
+    <script src="pages/user/services/FilterService.js"></script>
+
+    <script>
+        let marketId = 'all';
+        const filter_text = document.querySelector('.pasar-filter-text');
+        const select_filter = document.querySelector('.select-pasar-filter');
+
+        select_filter.addEventListener('change', function () {
+            const selectedText = this.options[this.selectedIndex].text;
+            filter_text.textContent = selectedText;
+            marketId = this.value;
+            FilterService.GetStats(inp_bulan.value, marketId);
+        });
+
+        const tampil_btn = document.querySelector('.tampil-btn');
+        const inp_bulan = document.getElementById('bulan');
+
+        tampil_btn.addEventListener('click', function () {
+            FilterService.GetStats(inp_bulan.value, marketId);
+        });
+
+        window.addEventListener('load', function () {
+            FilterService.GetStats(inp_bulan.value, marketId);
+        });
+
+    </script>
 
 </body>
 

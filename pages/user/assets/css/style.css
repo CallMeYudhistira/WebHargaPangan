@@ -43,14 +43,14 @@ body {
 .nav-item li a {
   color: rgb(54, 48, 48);
   text-decoration: none;
-  font-weight: 200;
+  font-weight: 300;
   transition: 0.4s;
 }
 
 .nav-item li a.active {
   color: rgb(0, 0, 0);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .nav-item li a:hover {
@@ -215,7 +215,7 @@ label {
   position: relative;
   width: 100%;
   max-width: 1600px;
-  max-height: 700px;
+  max-height: 750px;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   margin: 30px auto;
@@ -232,8 +232,8 @@ label {
 .slide {
   width: 100%;
   flex-shrink: 0;
-  height: 100%;
-  object-fit: fill;
+  height: 750px;
+  object-fit: cover;
 }
 
 .info-alert {
@@ -307,6 +307,7 @@ label {
   left: 12px;
   color: #888888;
   font-size: 18px;
+  flex-direction: column-reverse;
 }
 
 .search-input {
@@ -518,4 +519,11 @@ canvas#hargaChart {
   width: 40%;
   padding: 15px;
   border: 2px solid #ccc;
+}
+
+.table-image{
+  max-width: 200px;
+  max-height: 100px;
+  aspect-ratio: 16/9;
+  object-fit: contain;
 }
