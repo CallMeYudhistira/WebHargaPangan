@@ -78,7 +78,7 @@
 
     <!-- Modal End -->
 
-    <section class="kelola-komoditas">
+    <section class="kelola">
         <div class="kelola-aksi">
             <div class="search-container">
                 <i class='bx bx-search search-icon'></i>
