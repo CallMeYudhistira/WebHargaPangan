@@ -11,7 +11,7 @@ class FilterService {
             select_pasar.remove(select_pasar.options.length - 1);
         }
 
-        const res = await fetch(`api/filter/show_market.php?id=${this.id}`);
+        const res = await fetch(`api/filter/show_market.php?id=${id}`);
         const data = await res.json();
 
         data.data.forEach(market => {
@@ -25,11 +25,13 @@ class FilterService {
     }
 
     static async FilteredCommodities(id_market, status, id_kecamatan) {
+        const container = document.getElementById("komoditas-grid");
+        container.innerHTML = '<h4 align="center">Loading... 🔃</h4>'; 
+
         const res = await fetch(`api/filter/filtered_commodities.php?id_market=${id_market}&status=${status}&id_kecamatan=${id_kecamatan}`);
         const json = await res.json();
 
-        const container = document.getElementById("komoditas-grid");
-        container.innerHTML = ""; // Bersihkan sebelumnya
+        container.innerHTML = "";
 
         if (json.data && json.data.length > 0) {
             json.data.forEach(item => {
@@ -41,7 +43,7 @@ class FilterService {
                 }
 
                 const div = document.createElement("div");
-                div.innerHTML = `<div class="card animate-fadein" onclick="chartModal()" style="margin: 0; margin-top: 12px;">
+                div.innerHTML = `<div class="card animate-fadein" onclick="ChartService.ChartModal('${item.commodity_name}', '${item.id_commodity}')" style="margin: 0; margin-top: 12px;">
                 <div class="harga">
                     <span>Rp. ${item.price} / ${item.unit}</span>
                 </div>
@@ -61,7 +63,7 @@ class FilterService {
                 container.appendChild(div);
             });
         } else {
-            container.innerHTML = '<h4 align="center">Data tidak ditemukan</h4>';
+            container.innerHTML = '<h4 align="center">Data tidak ditemukan.</h4>';
         }
     }
 
@@ -90,7 +92,7 @@ class FilterService {
                 i++;
             });
         } else {
-            container.innerHTML = '<tr><td colspan="7"><h4 align="center">Data tidak ditemukan</h4></td></tr>';
+            container.innerHTML = '<tr><td colspan="7"><h4 align="center">Data tidak ditemukan.</h4></td></tr>';
         }
     }
 }

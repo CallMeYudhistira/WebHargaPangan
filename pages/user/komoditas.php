@@ -47,7 +47,9 @@ $result = $connection->query($sql);
     <div class="komoditas-grid" id="komoditas-grid">
         <?php foreach ($result as $data): ?>
             <div>
-                <div class="card animate-fadein" onclick="ChartService.ChartModal('<?= $data['commodity_name'] ?>', '<?= $data['id_commodity'] ?>')" style="margin: 0; margin-top: 12px;">
+                <div class="card animate-fadein"
+                    onclick="ChartService.ChartModal('<?= $data['commodity_name'] ?>', '<?= $data['id_commodity'] ?>')"
+                    style="margin: 0; margin-top: 12px;">
                     <div class="harga">
                         <span>Rp. <?= $data['price'] ?> / <?= $data['unit'] ?></span>
                     </div>
@@ -87,6 +89,9 @@ $result = $connection->query($sql);
                     <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
                 </header>
                 <main class="modal__content" id="modal-chart-content">
+                    <div id="loading-chart" style="text-align:center; padding:20px; display:none;">
+                        <span>Loading... 🔃</span>
+                    </div>
                     <canvas id="hargaChart"></canvas>
                 </main>
                 <footer class="modal__footer">
@@ -121,7 +126,7 @@ $result = $connection->query($sql);
                             <option value="all" selected disabled id="select-pasar-placeholder">Pilih Pasar</option>
                         </select>
                         <select class="select-kondisi-harga">
-                            <option value="all">Pilih Kondisi Harga</option>
+                            <option value="all">Semua Kondisi</option>
                             <option value="Naik">Naik</option>
                             <option value="Turun">Turun</option>
                             <option value="Stabil">Stabil</option>
@@ -129,7 +134,8 @@ $result = $connection->query($sql);
                     </form>
                 </main>
                 <footer class="modal__footer">
-                    <button class="modal__btn modal__btn-primary" id="submit-filter">Continue</button>
+                    <button class="modal__btn modal__btn-primary" id="submit-filter"
+                        data-micromodal-close>Continue</button>
                     <button class="modal__btn" data-micromodal-close
                         aria-label="Close this dialog window">Close</button>
                 </footer>
@@ -184,6 +190,10 @@ $result = $connection->query($sql);
 
         document.querySelectorAll(".card").forEach((el, i) => {
             el.style.animationDelay = `${i * 0.2}s`;
+        });
+
+        window.addEventListener('load', function () {
+            FilterService.FilteredCommodities(marketId, kondisi, kecamatanId);
         });
     </script>
 </body>
