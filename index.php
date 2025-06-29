@@ -31,6 +31,10 @@ switch ($router) {
         require 'pages/admin/kelola_harga.php';
         break;
 
+    case 'admin/log-harga':
+        require 'pages/admin/log_harga.php';
+        break;
+
     default:
         http_response_code(404);
         echo "404 Not Found";
