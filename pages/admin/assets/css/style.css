@@ -5,6 +5,20 @@
   font-family: "Poppins";
 }
 
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
 .app-navbar {
   background: #fff;
   width: 100%;
@@ -296,4 +310,183 @@
   padding-right: 40px;
   background: url("https://upload.wikimedia.org/wikipedia/commons/9/9d/Arrow-down.svg") no-repeat right 14px center;
   background-size: 16px;
+}
+
+.sidebar-app {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100vh;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sidebar-app.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.sidebar-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-container {
+  width: 264px;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.sidebar-app.visible .sidebar-container {
+  transform: translateX(0);
+}
+
+.top-section {
+  justify-content: center;
+  position: relative;
+  right: 4px;
+  padding-block: 2.55rem;
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.menu-side-group {
+  width: 100%;
+  height: 100%;
+  padding: 0px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.menu-side {
+  width: 100%;
+  height: 46px;
+  padding-block: 1rem;
+  border-radius: 0.5rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding-inline: 20px;
+  text-decoration: none;
+  gap: 24px;
+  background-color: #fff;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.side-icon {
+  font-size: 17.5px;
+  margin-right: 5px;
+}
+
+.menu-side.close {
+  background-color: #eee;
+  cursor: pointer;
+}
+
+.menu-side.close .side-icon {
+  font-size: 15px;
+  position: relative;
+  left: 2px;
+}
+
+.menu-side:hover:not(.active):not(.close) {
+  background-color: #e6f0fb;
+  color: #307bc4;
+  cursor: pointer;
+}
+
+.menu-side.active {
+  background-color: #307bc4;
+  color: #fff;
+}
+
+.menu-mobile {
+  background-color: #fff;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  display: none;
+}
+
+.menu-mobile .icon {
+  font-size: 35px;
+  color: #333;
+}
+
+@media (max-width: 1600px) {
+  .app-navbar {
+    padding-inline: 1.5rem;
+  }
+
+  .kelola-aksi {
+    width: 100%;
+  }
+
+  .kelola {
+    width: 100%;
+    padding-inline: 1.5rem;
+  }
+
+  .table-container {
+    width: 100%;
+    padding-inline: 1.5rem;
+  }
+}
+
+@media(max-width: 1240px) {
+  td:last-child {
+    display: flex;
+    min-width: 100%;
+    height: 100%;
+    flex-direction: column;
+    gap: .5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .menu-mobile {
+    display: block;
+  }
+
+  .group-menu-nav {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .kelola-aksi {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .search-container, .tambah {
+    width: 100%;
+    flex: 1;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+}
+
+@media(max-width: 768px) {
+  .table-container {
+    overflow-x: scroll;
+  }
 }

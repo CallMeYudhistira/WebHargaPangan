@@ -27,5 +27,8 @@ $current_page = trim($_GET['route'] ?? "", "/");
                 </a>
             </div>
         </div>
+        <button class="menu-mobile">
+            <i class='bx bx-menu-right icon'></i> 
+        </button>
     </div>
 </header>

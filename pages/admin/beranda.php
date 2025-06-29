@@ -16,6 +16,10 @@
 
 <body>
     <?php include "includes/header.php" ?>
+    <?php include "includes/sidebar.php" ?>
+
+    <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
