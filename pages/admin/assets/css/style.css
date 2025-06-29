@@ -234,6 +234,11 @@
   color: white;
 }
 
+.btn-aksi.detail {
+  background-color: #343a40;
+  color: white;
+}
+
 .btn-aksi:hover {
   transform: scale(1.05);
   opacity: 0.95;

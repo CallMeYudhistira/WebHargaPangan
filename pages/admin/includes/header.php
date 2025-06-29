@@ -22,6 +22,9 @@ $current_page = trim($_GET['route'] ?? "", "/");
                 <a class="menu-nav <?= ($current_page == 'admin/kelola-harga') ? 'active' : '' ?>" href="index.php?route=/admin/kelola-harga">
                     <span>💰 Kelola Harga</span>
                 </a>
+                <a class="menu-nav <?= ($current_page == 'admin/log-harga') ? 'active' : '' ?>" href="index.php?route=/admin/log-harga">
+                    <span>⌛ Log Harga</span>
+                </a>
             </div>
         </div>
     </div>
