@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 * {
   font-family: "Poppins";
@@ -10,54 +10,6 @@ body {
   box-sizing: border-box;
 }
 
-.m-auto {
-  margin: auto 0;
-}
-
-.app-bar {
-  width: 100%;
-  height: fit-content;
-  background-color: rgb(255, 255, 255);
-  color: black;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  max-height: 200px;
-}
-
-.app-bar h1 {
-  margin-left: 25px;
-}
-
-.nav-item {
-  display: flex;
-  justify-content: space-between;
-  list-style-type: none;
-}
-
-.nav-item li {
-  margin: 15px;
-}
-
-.nav-item li a {
-  color: rgb(54, 48, 48);
-  text-decoration: none;
-  font-weight: 300;
-  transition: 0.4s;
-}
-
-.nav-item li a.active {
-  color: rgb(0, 0, 0);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.nav-item li a:hover {
-  font-size: 16.5px;
-  transition: 0.4s;
-}
-
 .container {
   max-width: 1600px;
   margin: 20px auto;
@@ -67,7 +19,7 @@ body {
   display: flex;
 }
 
-.status{
+.status {
   min-width: 50px;
   height: 35px;
   display: flex;
@@ -103,7 +55,7 @@ body {
   background-color: white;
   min-width: 230px;
   max-width: 230px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.5);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   margin: 30px;
 
@@ -220,7 +172,7 @@ label {
   overflow: hidden;
   margin: 30px auto;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .slides {
@@ -326,7 +278,7 @@ label {
   box-shadow: 0 0 0 2px rgba(48, 123, 196, 0.2);
 }
 
-.info-terbaru-komoditas{
+.info-terbaru-komoditas {
   border-radius: 15px;
   max-width: 1400px;
   padding: 20px;
@@ -334,11 +286,11 @@ label {
   border: 1px solid #ccc;
 }
 
-.x-scroll{
+.x-scroll {
   overflow-x: scroll;
 }
 
-.komoditas-grid{
+.komoditas-grid {
   max-width: 1600px;
   padding-bottom: 2rem;
   background-color: #fff;
@@ -349,7 +301,7 @@ label {
   margin-top: 1.75rem;
 }
 
-.info-grid{
+.info-grid {
   margin: 0 auto;
   width: fit-content;
   display: flex;
@@ -439,10 +391,6 @@ canvas#hargaChart {
   color: #333;
 }
 
-.modern-table thead {
-  background: #f9fafb;
-}
-
 .modern-table th {
   font-weight: 500;
 }
@@ -491,42 +439,200 @@ canvas#hargaChart {
   animation: fadeInUp 1s ease-out both;
 }
 
-.footer-text{
+.footer-text {
   text-align: center;
   padding: 25px;
   font-size: 18px;
 }
 
-.footer-copyright{
+.footer-copyright {
+  border-top: 1.5px solid rgba(0, 0, 0, 0.1);
   text-align: center;
   padding: 18px;
 }
 
-.keranjang-container{
+.keranjang-container {
   display: flex;
 }
 
-.list-komoditas{
+.list-komoditas {
   float: left;
   width: 60%;
   border: 2px solid #ccc;
   padding: 15px;
 }
 
-.keranjang{
+.keranjang {
   float: right;
   width: 40%;
   padding: 15px;
   border: 2px solid #ccc;
 }
 
-.table-image{
+.table-image {
   max-width: 200px;
   max-height: 100px;
   aspect-ratio: 16/9;
   object-fit: contain;
 }
 
-.label-filter{
+.label-filter {
   margin-bottom: -9px;
+}
+
+.site-footer {
+  border-top: 1.5px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+  width: 100%;
+  padding-block: 4px;
+  margin-bottom: 1.5rem;
+  min-height: 200px;
+  margin-top: 70px;
+}
+
+main {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1600px) {
+  .form-filter {
+    margin-left: -20px;
+  }
+
+  canvas#hargaChart {
+    margin-left: -20px;
+    margin-right: 20px;
+  }
+
+  .komoditas-grid {
+    width: 100%;
+    padding-inline: 1.5rem;
+  }
+
+  main {
+    padding-inline: 1.5rem;
+    width: 100%;
+  }
+
+  .app-navbar {
+    padding-inline: 1.5rem;
+  }
+
+  .table-container {
+    width: 100%;
+    padding-inline: 1.5rem;
+  }
+
+  .search-container {
+    flex: 1;
+  }
+
+  .site-footer {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (max-width: 1240px) {
+  td:last-child {
+    display: flex;
+    min-width: 100%;
+    height: 100%;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .filter-section {
+    max-width: 1024px;
+  }
+
+  .filter-section-container {
+    flex-direction: column;
+  }
+
+  .komoditas-grid {
+    width: 100%;
+    margin-top: 6rem;
+  }
+
+  .info-alert {
+    width: auto;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .menu-mobile {
+    display: block;
+  }
+
+  .group-menu-nav {
+    display: none;
+  }
+
+  .komoditas-grid {
+    gap: 47px;
+  }
+}
+
+@media (max-width: 1025px) {
+  .komoditas-grid {
+    gap: 67px;
+  }
+}
+
+@media (max-width: 640px) {
+  .form-tampil {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .card {
+    min-width: 370px;
+    max-width: 370px;
+    margin: 0 auto;
+  }
+
+  .komoditas-grid {
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(370px, 370px));
+    gap: 50px;
+    margin-top: 8rem;
+  }
+
+  .search-container,
+  .dropdown-btn {
+    width: 100%;
+    flex: 1;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .info-alert {
+    width: auto;
+    margin-bottom: 12px;
+    font-size: 11.5px;
+  }
+
+  .filter-right {
+    display: block;
+  }
+
+  .filter-right .search-container,
+  .search-input {
+    width: 100%;
+  }
+
+  .filter-right .filter-komoditas {
+    width: 100%;
+    margin-top: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .table-container {
+    overflow-x: scroll;
+  }
 }

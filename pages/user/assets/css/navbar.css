@@ -1,0 +1,71 @@
+.app-navbar {
+  background: #fff;
+  width: 100%;
+  padding-block: 4px;
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.app-bar-container {
+  max-width: 1600px;
+  height: 100%;
+  margin: 0 auto;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left-section,
+.top-section {
+  display: flex;
+  align-items: center;
+  height: 74px;
+}
+
+.left-section .title,
+.top-section .title {
+  margin-left: 1.5rem;
+  font-weight: 700;
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.top-section .title {
+  position: relative;
+  right: 2.5px;
+}
+
+.main-icon {
+  height: 50px;
+}
+
+.right-section {
+  display: flex;
+  position: relative;
+}
+
+.group-menu-nav {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.menu-nav {
+  color: rgba(0, 0, 0, 0.68);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  gap: 6px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.menu-nav:hover {
+  color: rgba(0, 0, 0, 0.9);
+  transform: translateY(-2px);
+}
+
+.menu-nav.active {
+  color: rgba(0, 0, 0, 0.9);
+  font-weight: 500;
+}

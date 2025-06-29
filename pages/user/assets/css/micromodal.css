@@ -27,7 +27,6 @@
   max-width: 500px;
   max-height: 100vh;
   border-radius: 8px;
-  overflow-y: auto;
   box-sizing: border-box;
   z-index: 10000;
 }

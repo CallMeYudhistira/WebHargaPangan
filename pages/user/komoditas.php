@@ -18,35 +18,41 @@ $result = $connection->query($sql);
     <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="pages/user/assets/css/micromodal.css" rel="stylesheet">
+    <link href="pages/user/assets/css/navbar.css" rel="stylesheet">
+    <link href="pages/user/assets/css/sidebar.css" rel="stylesheet">
     <link rel="stylesheet" href="pages/user/assets/css/style.css">
 </head>
 
 <body>
-    <?php include 'includes/navbar.php' ?>
-
-    <section class="filter-section animate-fadein">
-        <div class="filter-section-container">
-            <div class="info-alert">
-                📢 Menampilkan semua informasi harga pangan di kota Cimahi!
-            </div>
-            <div class="filter-right">
-                <div class="search-container">
-                    <i class='bx bx-search search-icon'></i>
-                    <input id="cariKomoditas" type="text" class="search-input" placeholder="Cari Komoditas ..." />
+    <?php include 'includes/navbar.php'; ?>
+    <?php include 'includes/sidebar.php'; ?>
+    <main>
+        <section class="filter-section animate-fadein">
+            <div class="filter-section-container">
+                <div class="info-alert">
+                    📢 Menampilkan semua informasi harga pangan di kota Cimahi!
                 </div>
-                <button class="dropdown-btn filter-komoditas">
-                    <span class="chevron">
-                        <i class='bx bx-menu-filter'></i>
-                    </span>
-                    Filter
-                </button>
+                <div class="filter-right">
+                    <div class="search-container">
+                        <i class='bx bx-search search-icon'></i>
+                        <input id="cariKomoditas" type="text" class="search-input" placeholder="Cari Komoditas ..." />
+                    </div>
+                    <button class="dropdown-btn filter-komoditas">
+                        <span class="chevron">
+                            <i class='bx bx-menu-filter'></i>
+                        </span>
+                        Filter
+                    </button>
+                </div>
             </div>
+        </section>
+
+        <div class="komoditas-grid" id="komoditas-grid">
+
         </div>
-    </section>
+    </main>
 
-    <div class="komoditas-grid" id="komoditas-grid">
-
-    </div>
+    <?php include 'includes/footer.php'; ?>
 
     <!-- Modal Chart Start -->
     <div class="modal micromodal-slide" id="modal-chart" aria-hidden="true">
@@ -117,11 +123,11 @@ $result = $connection->query($sql);
     </div>
     <!-- Modal Filter End -->
 
-    <?php include 'includes/footer.php'; ?>
-
     <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
     <script src="pages/user/services/FilterService.js"></script>
     <script src="pages/user/services/ChartService.js"></script>
+    <script src="pages/user/assets/js/script.js"></script>
+
     <script>
         let marketId = 'all';
         let kecamatanId = 'all';
@@ -136,7 +142,7 @@ $result = $connection->query($sql);
             if (e.target.value !== "all") {
                 SELECT_PASAR.style.display = "block";
                 LABEL_PASAR.style.display = "block";
-            } else if (e.target.value === "all"){
+            } else if (e.target.value === "all") {
                 SELECT_PASAR.style.display = "none";
                 LABEL_PASAR.style.display = "none";
                 marketId = 'all';
@@ -183,7 +189,7 @@ $result = $connection->query($sql);
                 keyword = searchInput.value.trim();
                 if (keyword !== '') {
                     FilterService.FilteredCommodities(marketId, kondisi, kecamatanId, keyword);
-                } else if(keyword === ''){
+                } else if (keyword === '') {
                     keyword = 'all'
                     FilterService.FilteredCommodities(marketId, kondisi, kecamatanId, keyword);
                 }

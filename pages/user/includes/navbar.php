@@ -3,33 +3,31 @@
 $current_page = trim($_GET['route'] ?? "", "/");
 
 ?>
-
-<header style="border-bottom: 1px solid #ccc; max-height: 100px; margin-top: -10px;">
-    <div class="container app-bar">
-        <div class="d-flex m-auto">
-            <img src="assets/img/Logo-Cimahi.PNG" alt="Logo Cimahi" class="icon-nav">
-            <h1>INFO PANGAN KOTA CIMAHI</h1>
+<header class="app-navbar">
+    <div class="app-bar-container">
+        <div class="left-section">
+            <img src="assets/img/Logo-Cimahi.PNG" class="main-icon"
+                alt="Main Icon">
+            <span class="title">INFO PANGAN KOTA CIMAHI</span>
         </div>
-        <nav class="nav-menu">
-            <ul class="nav-item">
-                <li>
-                    <a href="index.php" class="nav-link <?= ($current_page == '') ? 'active' : ''; ?>">Beranda</a>
-                </li>
-                <div class="vertical-line"></div>
-                <li>
-                    <a href="index.php?route=/komoditas"
-                        class="nav-link <?= ($current_page == 'komoditas') ? 'active' : ''; ?>">Komoditas</a>
-                </li>
-                <div class="vertical-line"></div>
-                <li>
-                    <a href="index.php?route=/statistik"
-                        class="nav-link <?= ($current_page == 'statistik') ? 'active' : ''; ?>">Statistik</a>
-                </li>
-                <div class="vertical-line"></div>
-                <li>
-                    <a href="index.php?route=/admin" class="nav-link">Panel Admin</a>
-                </li>
-            </ul>
-        </nav>
+        <div class="right-section">
+            <div class="group-menu-nav">
+                <a class="menu-nav <?= ($current_page == '') ? 'active' : '' ?>" href="index.php">
+                    <span>🏠 Beranda</span>
+                </a>
+                <a class="menu-nav <?= ($current_page == 'komoditas') ? 'active' : '' ?>" href="index.php?route=/komoditas">
+                    <span>🥩 Komoditas</span>
+                </a>
+                <a class="menu-nav <?= ($current_page == 'statistik') ? 'active' : '' ?>" href="index.php?route=/statistik">
+                    <span>📈 Statistik</span>
+                </a>
+                <a class="menu-nav <?= ($current_page == 'admin') ? 'active' : '' ?>" href="index.php?route=/admin">
+                    <span>Panel Admin</span>
+                </a>
+            </div>
+        <button class="menu-mobile">
+            <i class='bx bx-menu-right icon'></i> 
+        </button>
+        </div>
     </div>
 </header>
