@@ -21,14 +21,16 @@ class FilterService {
             select_pasar.appendChild(opt);
         });
 
-        placeholderPasar.innerHTML = "Pilih Pasar";
+        placeholderPasar.innerText = "Semua Pasar";
+        placeholderPasar.selected = true;
+        placeholderPasar.disabled = false;
     }
 
-    static async FilteredCommodities(id_market, status, id_kecamatan) {
+    static async FilteredCommodities(id_market, status, id_kecamatan, keyword) {
         const container = document.getElementById("komoditas-grid");
-        container.innerHTML = '<h4 align="center">Loading... 🔃</h4>'; 
+        container.innerHTML = '<h4 align="center">Loading... 🔃</h4>';
 
-        const res = await fetch(`api/filter/filtered_commodities.php?id_market=${id_market}&status=${status}&id_kecamatan=${id_kecamatan}`);
+        const res = await fetch(`api/filter/filtered_commodities.php?id_market=${id_market}&status=${status}&id_kecamatan=${id_kecamatan}&keyword=${keyword}`);
         const json = await res.json();
 
         container.innerHTML = "";
@@ -36,9 +38,9 @@ class FilterService {
         if (json.data && json.data.length > 0) {
             json.data.forEach(item => {
                 let icon_status = 'bx bx-stroke-pen';
-                if(item.status == 'Naik'){
+                if (item.status == 'Naik') {
                     icon_status = 'bx bx-arrow-up-right-stroke';
-                } else if(item.status == 'Turun'){
+                } else if (item.status == 'Turun') {
                     icon_status = 'bx bx-arrow-down-right-stroke';
                 }
 
@@ -50,7 +52,7 @@ class FilterService {
                 <img src="public/images/${item.image}" class="card-img" alt="${item.commodity_name}">
                 <div class="view-detail">View Detail</div>
                 <div class="card-body">
-                    <h4 class="card-title">${item.icon} ${item.commodity_name}</h4>
+                    <h4 class="card-title">${item.icon} <span id="nama_komoditas">${item.commodity_name}</h4>
                     <div class="info-grid">
                         <div class="status ${item.status}">
                             <i class="${icon_status}"></i> <span class="card-text">${item.status}</span>
@@ -65,9 +67,16 @@ class FilterService {
         } else {
             container.innerHTML = '<h4 align="center">Data tidak ditemukan.</h4>';
         }
+
+        if (keyword !== 'all') {
+            const ress = await fetch("api/logs/search_log.php", {
+                method: "POST",
+                body: JSON.stringify({ keyword }),
+            });
+        }
     }
 
-    static async GetStats(month, marketId){
+    static async GetStats(month, marketId) {
         const container = document.getElementById("table-body");
         container.innerHTML = '<tr><td colspan="7"><h4 align="center">Loading... 🔃</h4></td></tr>';
 
@@ -85,9 +94,9 @@ class FilterService {
                                 <td><img src="public/images/${item.image}" alt="${item.name}" class="table-image">
                                 </td>
                                 <td>${item.icon} ${item.name}</td>
-                                <td>${parseInt(item.avg_price)} / KG</td>
-                                <td>${parseInt(item.max_price)} / KG</td>
-                                <td>${parseInt(item.min_price)} / KG</td>`;
+                                <td>${parseInt(item.avg_price)} / ${item.unit}</td>
+                                <td>${parseInt(item.max_price)} / ${item.unit}</td>
+                                <td>${parseInt(item.min_price)} / ${item.unit}</td>`;
                 container.appendChild(tr);
                 i++;
             });

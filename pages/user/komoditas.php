@@ -32,7 +32,7 @@ $result = $connection->query($sql);
             <div class="filter-right">
                 <div class="search-container">
                     <i class='bx bx-search search-icon'></i>
-                    <input type="text" class="search-input" placeholder="Cari Komoditas ..." />
+                    <input id="cariKomoditas" type="text" class="search-input" placeholder="Cari Komoditas ..." />
                 </div>
                 <button class="dropdown-btn filter-komoditas">
                     <span class="chevron">
@@ -45,37 +45,7 @@ $result = $connection->query($sql);
     </section>
 
     <div class="komoditas-grid" id="komoditas-grid">
-        <?php foreach ($result as $data): ?>
-            <div>
-                <div class="card animate-fadein"
-                    onclick="ChartService.ChartModal('<?= $data['commodity_name'] ?>', '<?= $data['id_commodity'] ?>')"
-                    style="margin: 0; margin-top: 12px;">
-                    <div class="harga">
-                        <span>Rp. <?= $data['price'] ?> / <?= $data['unit'] ?></span>
-                    </div>
-                    <img src="public/images/<?= $data['image'] ?>" class="card-img" alt="<?= $data['commodity_name'] ?>">
-                    <div class="view-detail">View Detail</div>
-                    <div class="card-body">
-                        <h4 class="card-title"><?= $data['icon'] ?>     <?= $data['commodity_name'] ?></h4>
-                        <div class="info-grid">
-                            <div class="status <?= $data['status'] ?>">
-                                <i class="<?php
-                                if ($data['status'] == 'Naik') {
-                                    echo 'bx bx-arrow-up-right-stroke';
-                                } else if ($data['status'] == 'Turun') {
-                                    echo 'bx bx-arrow-down-right-stroke';
-                                } else {
-                                    echo 'bx bx-stroke-pen';
-                                }
-                                ?>"></i> <span class="card-text"><?= $data['status'] ?></span>
-                            </div>
-                            <div class="vertical-line" style="height: 30px;"></div>
-                            <span><?= $data['percent'] ?>%</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <?php endforeach; ?>
+
     </div>
 
     <!-- Modal Chart Start -->
@@ -115,16 +85,19 @@ $result = $connection->query($sql);
                 </header>
                 <main class="modal__content" id="modal-1-content">
                     <form class="form-filter">
+                        <label for="kecamatan" class="label-filter">Kecamatan</label>
                         <select class="select-kecamatan">
-                            <option value="all" selected disabled>Pilih Kecamatan</option>
+                            <option value="all">Semua Kecamatan</option>
                             <?php $result = $connection->query('SELECT * FROM regions');
                             foreach ($result as $region): ?>
                                 <option value="<?= $region['id'] ?>"><?= $region['district'] ?></option>
                             <?php endforeach ?>
                         </select>
+                        <label for="pasar" style="display: none;" id="label-pasar" class="label-filter">Pasar</label>
                         <select class="select-pasar" style="display: none;">
-                            <option value="all" selected disabled id="select-pasar-placeholder">Pilih Pasar</option>
+                            <option value="all" id="select-pasar-placeholder">Semua Pasar</option>
                         </select>
+                        <label for="kondisi-harga" class="label-filter">Kondisi Harga</label>
                         <select class="select-kondisi-harga">
                             <option value="all">Semua Kondisi</option>
                             <option value="Naik">Naik</option>
@@ -153,13 +126,20 @@ $result = $connection->query($sql);
         let marketId = 'all';
         let kecamatanId = 'all';
         let kondisi = 'all';
+        let keyword = 'all';
 
         const SELECT_KONDISI = document.querySelector(".select-kondisi-harga");
         const SELECT_KECAMATAN = document.querySelector(".select-kecamatan");
         const SELECT_PASAR = document.querySelector(".select-pasar");
+        const LABEL_PASAR = document.getElementById('label-pasar');
         SELECT_KECAMATAN.addEventListener("change", e => {
-            if (e.target.value !== "") {
+            if (e.target.value !== "all") {
                 SELECT_PASAR.style.display = "block";
+                LABEL_PASAR.style.display = "block";
+            } else if (e.target.value === "all"){
+                SELECT_PASAR.style.display = "none";
+                LABEL_PASAR.style.display = "none";
+                marketId = 'all';
             }
         });
 
@@ -179,7 +159,7 @@ $result = $connection->query($sql);
         const BUTTON_FILTER = document.getElementById("submit-filter");
 
         BUTTON_FILTER.addEventListener('click', function () {
-            FilterService.FilteredCommodities(marketId, kondisi, kecamatanId);
+            FilterService.FilteredCommodities(marketId, kondisi, kecamatanId, keyword);
         });
 
         document.querySelector(".filter-komoditas").addEventListener("click", () => {
@@ -193,7 +173,21 @@ $result = $connection->query($sql);
         });
 
         window.addEventListener('load', function () {
-            FilterService.FilteredCommodities(marketId, kondisi, kecamatanId);
+            FilterService.FilteredCommodities(marketId, kondisi, kecamatanId, keyword);
+        });
+
+        const searchInput = document.getElementById('cariKomoditas');
+
+        searchInput.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                keyword = searchInput.value.trim();
+                if (keyword !== '') {
+                    FilterService.FilteredCommodities(marketId, kondisi, kecamatanId, keyword);
+                } else if(keyword === ''){
+                    keyword = 'all'
+                    FilterService.FilteredCommodities(marketId, kondisi, kecamatanId, keyword);
+                }
+            }
         });
     </script>
 </body>

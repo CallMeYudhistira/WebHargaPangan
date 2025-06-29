@@ -526,3 +526,7 @@ canvas#hargaChart {
   aspect-ratio: 16/9;
   object-fit: contain;
 }
+
+.label-filter{
+  margin-bottom: -9px;
+}
