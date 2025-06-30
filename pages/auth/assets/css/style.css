@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 10px;
+  display: flex;
+  background: #307bc4;
+  justify-content: center;
+  align-items: center;
+}
+.login_form {
+  width: 100%;
+  max-width: 435px;
+  background: #fff;
+  border-radius: 6px;
+  padding: 41px 30px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+.login_form h3 {
+  font-size: 20px;
+  text-align: center;
+}
+
+.login_cimahi {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-block: 2rem;
+}
+
+.login_cimahi img {
+    width: 80px;
+}
+
+.login_form p {
+  text-align: center;
+  font-weight: 500;
+}
+.login_form .separator {
+  position: relative;
+  margin-bottom: 24px;
+}
+.login_form .separator span {
+  background: #fff;
+  z-index: 1;
+  padding: 0 10px;
+  position: relative;
+}
+.login_form .separator::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  height: 1px;
+  background: #c2c2c2;
+  display: block;
+}
+form .input_box label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+form .input_box input {
+  width: 100%;
+  height: 57px;
+  border: 1px solid #dadaf2;
+  border-radius: 5px;
+  outline: none;
+  background: #f8f8fb;
+  font-size: 17px;
+  padding: 0px 20px;
+  margin-bottom: 25px;
+  transition: 0.2s ease;
+}
+form .input_box input:focus {
+  border-color: #307bc4;
+}
+form .input_box .password_title {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+form .input_box {
+  position: relative;
+}
+a {
+  text-decoration: none;
+  color: #307bc4;
+  font-weight: 500;
+}
+a:hover {
+  text-decoration: underline;
+}
+form button {
+  width: 100%;
+  height: 56px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background: #307bc4;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-bottom: 28px;
+  transition: 0.3s ease;
+}
+form button:hover {
+  background: #307bc4;
+}

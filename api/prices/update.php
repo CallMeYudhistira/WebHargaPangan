@@ -2,6 +2,9 @@
 
 require_once "../../configs/connection.php";
 
+
+session_start();
+
 $data = json_decode(file_get_contents("php://input"), true);
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && $data) {
@@ -11,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && $data) {
     $price = mysqli_real_escape_string($connection, $data['price']);
     $status = 'Stabil';
     $percent = 0;
-    $user = 1;
+    $user = $_SESSION['id'];
 
     $old = $connection->query("SELECT * FROM market_commodities WHERE id = '$id'")->fetch_assoc();
     $oldPrice = $old['price'];
