@@ -17,12 +17,10 @@ switch ($router) {
         break;
 
     case 'admin':
-        if (!isset($_SESSION['id'])) {
-            if ($_SESSION['role'] !== '2') {
-                http_response_code(403);
-                echo "403 Forbidden - Anda tidak diizinkan mengakses halaman ini.";
-                exit;
-            }
+        if (!isset($_SESSION['id']) || $_SESSION['role'] !== '2') {
+            http_response_code(403);
+            echo "403 Forbidden - Anda tidak diizinkan mengakses halaman ini.";
+            exit;
         }
         require 'pages/admin/beranda.php';
         break;
