@@ -70,7 +70,7 @@
         <div class="kelola-aksi">
             <div class="search-container">
                 <i class='bx bx-search search-icon'></i>
-                <input type="text" class="search-input" placeholder="Cari Komoditas ..." />
+                <input type="text" class="search-input" onkeydown="onSearch(event)" placeholder="Cari komoditas ... (tap Enter)" />
             </div>
             <button class="tambah" onclick="openModal('modal-komoditas'); CommodityService.HandleNew();">
                 <span>Tambah Komoditas</span>
@@ -91,7 +91,8 @@
                 </thead>
                 <tbody>
                     <?php
-                    $commodities = $connection->query("SELECT * FROM commodities");
+                    $search = $_GET['search'] ?? "";
+                    $commodities = $connection->query("SELECT * FROM commodities WHERE name LIKE '%$search%'");
                     foreach ($commodities as $i => $commodity):
                         ?>
                         <tr>
