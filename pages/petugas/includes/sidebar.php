@@ -11,7 +11,7 @@
                     <span><span class="side-icon">🏠</span> Beranda</span>
                 </a>
                 <a class="menu-side <?= ($current_page == 'petugas/kelola-harga') ? 'active' : '' ?>" href="index.php?route=/petugas/kelola-harga">
-                    <span><span class="side-icon">📌</span> Kelola Harga</span>
+                    <span><span class="side-icon">💰</span> Kelola Harga</span>
                 </a>
                 <a class="menu-side <?= ($current_page == 'petugas/log-harga') ? 'active' : '' ?>" href="index.php?route=/petugas/log-harga">
                     <span><span class="side-icon">⌛</span> Log Harga</span>
@@ -19,7 +19,7 @@
                 <a class="menu-side out" href="pages/auth/actions/logout.php">
                     <span><span class="side-icon">↪</span> Log Out</span>
                 </a>
-                <a class="menu-side close" id="close-sidebar">
+                <a class="menu-side close" id="close-sidebar" onclick="return confirm('Yakin logout?')">
                     <span><span class="side-icon">❌</span> Close Sidebar</span>
                 </a>
             </div>
