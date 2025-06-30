@@ -7,19 +7,13 @@
                 <span class="title">PANGAN CIMAHI</span>
             </div>
             <div class="menu-side-group">
-                <a class="menu-side <?= ($current_page == 'admin') ? 'active' : '' ?>" href="index.php?route=/admin">
+                <a class="menu-side <?= ($current_page == 'petugas') ? 'active' : '' ?>" href="index.php?route=/petugas">
                     <span><span class="side-icon">🏠</span> Beranda</span>
                 </a>
-                <a class="menu-side <?= ($current_page == 'admin/kelola-komoditas') ? 'active' : '' ?>" href="index.php?route=/admin/kelola-komoditas">
-                    <span><span class="side-icon">🥩</span> Kelola Komoditas</span>
-                </a>
-                <a class="menu-side <?= ($current_page == 'admin/kelola-pasar') ? 'active' : '' ?>" href="index.php?route=/admin/kelola-pasar">
-                    <span><span class="side-icon">📌</span> Kelola Pasar</span>
-                </a>
-                <a class="menu-side <?= ($current_page == 'admin/kelola-harga') ? 'active' : '' ?>" href="index.php?route=/admin/kelola-harga">
+                <a class="menu-side <?= ($current_page == 'petugas/kelola-harga') ? 'active' : '' ?>" href="index.php?route=/petugas/kelola-harga">
                     <span><span class="side-icon">📌</span> Kelola Harga</span>
                 </a>
-                <a class="menu-side <?= ($current_page == 'admin/log-harga') ? 'active' : '' ?>" href="index.php?route=/admin/log-harga">
+                <a class="menu-side <?= ($current_page == 'petugas/log-harga') ? 'active' : '' ?>" href="index.php?route=/petugas/log-harga">
                     <span><span class="side-icon">⌛</span> Log Harga</span>
                 </a>
                 <a class="menu-side out" href="pages/auth/actions/logout.php">

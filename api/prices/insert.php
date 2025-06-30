@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once "../../configs/connection.php";
 
 $data = json_decode(file_get_contents("php://input"), true);
@@ -10,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && $data) {
     $price = mysqli_real_escape_string($connection, $data['price']);
     $status = 'Stabil';
     $percent = 0;
-    $user = 1;
+    $user = $_SESSION['id'];
 
     $check = $connection->query("SELECT COUNT(*) as `count` FROM market_commodities WHERE id_commodity = '$commodity' AND id_market = '$market'")->fetch_assoc();
     $count = $check['count'];
