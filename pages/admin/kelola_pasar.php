@@ -70,7 +70,7 @@
         <div class="kelola-aksi">
             <div class="search-container">
                 <i class='bx bx-search search-icon'></i>
-                <input type="text" class="search-input" placeholder="Cari Pasar ..." />
+                <input type="text" class="search-input" onkeydown="onSearch(event)" placeholder="Cari pasar ... (tap Enter)" />
             </div>
             <button class="tambah" onclick="openModal('modal-pasar'); MarketService.HandleNew();">
                 <span>Tambah Pasar</span>
@@ -90,7 +90,8 @@
                 </thead>
                 <tbody>
                     <?php
-                    $markets = $connection->query("SELECT markets.id, markets.name, regions.district, regions.city FROM markets INNER JOIN regions ON markets.id_region = regions.id");
+                    $search = $_GET['search'] ?? "";
+                    $markets = $connection->query("SELECT markets.id, markets.name, regions.district, regions.city FROM markets INNER JOIN regions ON markets.id_region = regions.id WHERE markets.name LIKE '%$search%'");
                     foreach ($markets as $i => $market):
                         ?>
                         <tr>

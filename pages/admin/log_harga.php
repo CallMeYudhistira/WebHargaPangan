@@ -71,7 +71,7 @@
         <div class="kelola-aksi">
             <div class="search-container">
                 <i class='bx bx-search search-icon'></i>
-                <input type="text" class="search-input" placeholder="Cari Log ..." />
+                <input type="text" class="search-input" onkeydown="onSearch(event)" placeholder="Cari log ... (tap Enter)" />
             </div>
         </div>
         <div class="table-container">
@@ -89,7 +89,8 @@
                 </thead>
                 <tbody>
                     <?php
-                    $sql = "SELECT price_logs.id, price_logs.create_at as `time`, commodities.name as commodity, CONCAT(markets.name, ' - ', regions.district, ', ', regions.city) as market, price_logs.price_before, price_logs.price_after, price_logs.status_before, price_logs.status_after, price_logs.percent_before, price_logs.percent_after, users.name FROM price_logs INNER JOIN market_commodities ON market_commodities.id = price_logs.id_market_commodity INNER JOIN commodities ON commodities.id = market_commodities.id_commodity INNER JOIN markets ON markets.id = market_commodities.id_market INNER JOIN regions ON markets.id_region = regions.id INNER JOIN users ON users.id = market_commodities.id_user ORDER BY price_logs.id ASC";
+                    $search = $_GET['search'] ?? "";
+                    $sql = "SELECT price_logs.id, price_logs.create_at as `time`, commodities.name as commodity, CONCAT(markets.name, ' - ', regions.district, ', ', regions.city) as market, price_logs.price_before, price_logs.price_after, price_logs.status_before, price_logs.status_after, price_logs.percent_before, price_logs.percent_after, users.name FROM price_logs INNER JOIN market_commodities ON market_commodities.id = price_logs.id_market_commodity INNER JOIN commodities ON commodities.id = market_commodities.id_commodity INNER JOIN markets ON markets.id = market_commodities.id_market INNER JOIN regions ON markets.id_region = regions.id INNER JOIN users ON users.id = market_commodities.id_user WHERE commodities.name LIKE '%$search%' ORDER BY price_logs.id ASC";
                     $logs = $connection->query($sql);
                     foreach ($logs as $i => $log):
                         ?>

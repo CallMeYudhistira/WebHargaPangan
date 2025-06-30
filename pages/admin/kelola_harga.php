@@ -83,7 +83,7 @@
         <div class="kelola-aksi">
             <div class="search-container">
                 <i class='bx bx-search search-icon'></i>
-                <input type="text" class="search-input" placeholder="Cari ..." />
+                <input type="text" class="search-input" onkeydown="onSearch(event)" placeholder="Cari ... (tap Enter)" />
             </div>
             <button class="tambah" onclick="openModal('modal-harga'); PriceService.HandleNew();">
                 <span>Tambah Harga</span>
@@ -107,7 +107,8 @@
                 </thead>
                 <tbody>
                     <?php
-                    $sql = "SELECT market_commodities.id, market_commodities.create_at as `time`, commodities.name as commodity, CONCAT(markets.name, ' - ', regions.district, ', ', regions.city) as market, market_commodities.price, market_commodities.status, market_commodities.percent, users.name FROM market_commodities INNER JOIN commodities ON commodities.id = market_commodities.id_commodity INNER JOIN markets ON markets.id = market_commodities.id_market INNER JOIN regions ON markets.id_region = regions.id INNER JOIN users ON users.id = market_commodities.id_user ORDER BY commodities.id ASC";
+                    $search = $_GET['search'] ?? "";
+                    $sql = "SELECT market_commodities.id, market_commodities.create_at as `time`, commodities.name as commodity, CONCAT(markets.name, ' - ', regions.district, ', ', regions.city) as market, market_commodities.price, market_commodities.status, market_commodities.percent, users.name FROM market_commodities INNER JOIN commodities ON commodities.id = market_commodities.id_commodity INNER JOIN markets ON markets.id = market_commodities.id_market INNER JOIN regions ON markets.id_region = regions.id INNER JOIN users ON users.id = market_commodities.id_user WHERE commodities.name LIKE '%$search%' ORDER BY commodities.id ASC";
                     $prices = $connection->query($sql);
                     foreach ($prices as $i => $price):
                         ?>
