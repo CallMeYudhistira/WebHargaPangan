@@ -12,18 +12,19 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
 
     // Base SQL
     $sql = "SELECT 
-                market_commodities.id_commodity, 
-                commodities.name AS commodity_name, 
-                commodities.icon, 
-                commodities.unit, 
-                commodities.image, 
-                market_commodities.price, 
-                market_commodities.status, 
-                market_commodities.percent 
+                MAX(commodities.id) AS id_commodity, 
+                MAX(commodities.name) AS commodity_name, 
+                MAX(commodities.icon) AS icon, 
+                MAX(commodities.unit) AS unit, 
+                MAX(commodities.image) AS image, 
+                MAX(market_commodities.price) AS price, 
+                MAX(market_commodities.status) AS status, 
+                MAX(market_commodities.percent) AS percent 
             FROM market_commodities
             INNER JOIN commodities ON commodities.id = market_commodities.id_commodity
             INNER JOIN markets ON markets.id = market_commodities.id_market
-            INNER JOIN regions ON markets.id_region = regions.id";
+            INNER JOIN regions ON markets.id_region = regions.id
+            GROUP BY commodities.id";
 
     // Kondisi dinamis
     $conditions = [];

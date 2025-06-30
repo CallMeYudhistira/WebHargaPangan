@@ -10,13 +10,15 @@ require_once 'configs/connection.php';
 <html lang="en">
 
 <head>
+    <title>Statistik - Informasi Pangan Kota Cimahi</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Statistik - Informasi Pangan Kota Cimahi</title>
     <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="pages/user/assets/css/micromodal.css" rel="stylesheet">
     <link href="pages/user/assets/css/navbar.css" rel="stylesheet">
     <link href="pages/user/assets/css/sidebar.css" rel="stylesheet">
-    <link href="pages/user/assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="pages/user/assets/css/style.css">
 </head>
 
 <body>
@@ -73,7 +75,9 @@ require_once 'configs/connection.php';
 
     <?php include 'includes/footer.php'; ?>
 
+    <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
     <script src="pages/user/services/FilterService.js"></script>
+    <script src="pages/user/services/ChartService.js"></script>
     <script src="pages/user/assets/js/script.js"></script>
 
     <script>

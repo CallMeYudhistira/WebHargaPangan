@@ -587,7 +587,7 @@ main {
     gap: 1rem;
   }
 
-  .card {
+  .komoditas-grid .card {
     min-width: 370px;
     max-width: 370px;
     margin: 0 auto;
