@@ -74,7 +74,7 @@ $result = $connection->query($sql);
                 </div>
             </div>
 
-            <h1 style="margin-top: 80px;">Simulasi Belanja - Keranjang</h1>
+            <!-- <h1 style="margin-top: 80px;">Simulasi Belanja - Keranjang</h1>
 
             <div class="keranjang-container">
                 <div class="list-komoditas">
@@ -83,7 +83,7 @@ $result = $connection->query($sql);
                 <div class="keranjang">
                     <h2>Ini Isi Keranjang</h2>
                 </div>
-            </div>
+            </div> -->
         </div>
     </main>
 
