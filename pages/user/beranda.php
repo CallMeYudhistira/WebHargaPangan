@@ -2,7 +2,7 @@
 
 require_once 'configs/connection.php';
 
-$sql = "SELECT market_commodities.id_commodity, commodities.name as commodity_name, commodities.icon, commodities.unit, commodities.image, market_commodities.price, market_commodities.status, market_commodities.percent FROM market_commodities INNER JOIN commodities ON commodities.id = market_commodities.id_commodity INNER JOIN markets ON markets.id = market_commodities.id_market";
+$sql = "SELECT MAX(commodities.id) as id_commodity, MAX(commodities.name) as commodity_name, MAX(commodities.icon) as icon, MAX(commodities.unit) as unit, MAX(commodities.image) as image, MAX(market_commodities.price) as price, MAX(market_commodities.status) as status, MAX(market_commodities.percent) as percent FROM market_commodities INNER JOIN commodities ON commodities.id = market_commodities.id_commodity INNER JOIN markets ON markets.id = market_commodities.id_market GROUP BY commodities.id";
 
 $result = $connection->query($sql);
 
@@ -12,13 +12,15 @@ $result = $connection->query($sql);
 <html lang="en">
 
 <head>
+    <title>Dashboard - Informasi Pangan Kota Cimahi</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Informasi Pangan Kota Cimahi</title>
-    <link href="pages/user/assets/css/style.css" rel="stylesheet">
+    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="pages/user/assets/css/micromodal.css" rel="stylesheet">
     <link href="pages/user/assets/css/navbar.css" rel="stylesheet">
     <link href="pages/user/assets/css/sidebar.css" rel="stylesheet">
-    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="pages/user/assets/css/style.css">
 </head>
 
 <body>
@@ -87,6 +89,9 @@ $result = $connection->query($sql);
 
     <?php include 'includes/footer.php'; ?>
 
+    <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+    <script src="pages/user/services/FilterService.js"></script>
+    <script src="pages/user/services/ChartService.js"></script>
     <script src="pages/user/assets/js/script.js"></script>
 
     <script>
