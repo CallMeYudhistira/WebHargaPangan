@@ -19,7 +19,7 @@
                 <a class="menu-side out" href="pages/auth/actions/logout.php">
                     <span><span class="side-icon">↪</span> Log Out</span>
                 </a>
-                <a class="menu-side close" id="close-sidebar" onclick="return confirm('Yakin logout?')">
+                <a class="menu-side close" id="close-sidebar">
                     <span><span class="side-icon">❌</span> Close Sidebar</span>
                 </a>
             </div>
