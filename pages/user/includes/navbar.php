@@ -21,9 +21,9 @@ $current_page = trim($_GET['route'] ?? "", "/");
                 <a class="menu-nav <?= ($current_page == 'statistik') ? 'active' : '' ?>" href="index.php?route=/statistik">
                     <span>📈 Statistik</span>
                 </a>
-                <a class="menu-nav <?= ($current_page == 'admin') ? 'active' : '' ?>" href="index.php?route=/admin">
+                <!-- <a class="menu-nav <?= ($current_page == 'admin') ? 'active' : '' ?>" href="index.php?route=/admin">
                     <span>Panel Admin</span>
-                </a>
+                </a> -->
             </div>
         <button class="menu-mobile">
             <i class='bx bx-menu-right icon'></i> 
