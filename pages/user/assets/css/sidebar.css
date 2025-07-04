@@ -34,6 +34,7 @@
   justify-content: space-between;
   transform: translateX(-100%);
   transition: transform 0.3s ease;
+  overflow-y: scroll;
 }
 
 .sidebar-app.visible .sidebar-container {
@@ -50,7 +51,7 @@
 }
 
 .menu-side-group {
-  width: 100%;
+  width: 350px;
   height: 100%;
   padding: 0px 20px;
   display: flex;
@@ -81,8 +82,9 @@
 }
 
 .menu-side.close {
-  background-color: #eee;
+  background-color: #fff;
   cursor: pointer;
+  padding-bottom: 100px;
 }
 
 .menu-side.close .side-icon {

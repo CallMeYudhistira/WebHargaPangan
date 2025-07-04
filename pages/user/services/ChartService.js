@@ -11,7 +11,7 @@ class ChartService {
         const loadingText = document.getElementById('loading-chart');
         const canvas = document.getElementById('hargaChart');
 
-        title.innerHTML = 'Analisis Harga ' + commodity;
+        title.innerHTML = 'Pergerakan Harga ' + commodity;
 
         // Tampilkan loading dan sembunyikan canvas sementara
         loadingText.style.display = 'block';

@@ -29,7 +29,7 @@ require_once 'configs/connection.php';
             <h1>Tabel Harga Pangan</h1>
 
             <div class="form-tampil">
-                <div class="d-flex" style="justify-content: space-between;">
+                <div class="stats-filter-container">
                     <div class="filter-bulan">
                         <label>Pilih Bulan :</label>
                         <input type="month" id="bulan" name="bulan" value="<?= $now ?>">
@@ -55,13 +55,12 @@ require_once 'configs/connection.php';
                     <table class="modern-table">
                         <thead>
                             <tr>
-                                <th><input type="checkbox" /></th>
-                                <th class="title-table">No</th>
                                 <th class="title-table">Foto</th>
                                 <th class="title-table">Nama Komoditas</th>
                                 <th class="title-table">Harga Rata-Rata</th>
                                 <th class="title-table">Harga Tertinggi</th>
                                 <th class="title-table">Harga Terendah</th>
+                                <th class="title-table">Nama Pasar</th>
                             </tr>
                         </thead>
                         <tbody id="table-body">

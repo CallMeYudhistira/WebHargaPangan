@@ -2,7 +2,20 @@
 
 require_once 'configs/connection.php';
 
-$sql = "SELECT MAX(commodities.id) as id_commodity, MAX(commodities.name) as commodity_name, MAX(commodities.icon) as icon, MAX(commodities.unit) as unit, MAX(commodities.image) as image, MAX(market_commodities.price) as price, MAX(market_commodities.status) as status, MAX(market_commodities.percent) as percent FROM market_commodities INNER JOIN commodities ON commodities.id = market_commodities.id_commodity INNER JOIN markets ON markets.id = market_commodities.id_market GROUP BY commodities.id";
+$sql = "SELECT 
+                MAX(commodities.id) AS id_commodity, 
+                MAX(commodities.name) AS commodity_name, 
+                MAX(commodities.icon) AS icon, 
+                MAX(commodities.unit) AS unit, 
+                MAX(commodities.image) AS image, 
+                MAX(market_commodities.price) AS price, 
+                MAX(market_commodities.status) AS status, 
+                MAX(market_commodities.percent) AS percent 
+            FROM market_commodities
+            INNER JOIN commodities ON commodities.id = market_commodities.id_commodity
+            INNER JOIN markets ON markets.id = market_commodities.id_market
+            INNER JOIN regions ON markets.id_region = regions.id
+            GROUP BY commodities.id";
 
 $result = $connection->query($sql);
 
@@ -49,24 +62,28 @@ $result = $connection->query($sql);
                 <h1 style="text-align: center;">Berikut Harga Pangan Terbaru</h1>
                 <div class="d-flex x-scroll" style="padding: 15px;">
                     <?php foreach ($result as $data): ?>
-                        <div class="card animate-fadein" <?= ($data['status'] == 'stabil') ? 'style="display: none;"' : '' ?>>
+                        <div class="card animate-fadein">
                             <div class="harga">
                                 <span>Rp. <?= $data['price'] ?> / <?= $data['unit'] ?></span>
                             </div>
-                            <img src="public/images/<?= $data['image'] ?>" class="card-img"
-                                alt="<?= $data['commodity_name'] ?>">
+                            <img src="public/images/<?= $data['image'] ?>" class="card-img" alt="<?= $data['commodity_name'] ?>">
+                            <div class="view-detail">View Detail</div>
                             <div class="card-body">
                                 <h4 class="card-title"><?= $data['icon'] ?>     <?= $data['commodity_name'] ?></h4>
-                                <div class="status <?= $data['status'] ?>">
-                                    <i class="<?php
-                                    if ($data['status'] == 'Naik') {
-                                        echo 'bx bx-arrow-up-right-stroke';
-                                    } else if ($data['status'] == 'Turun') {
-                                        echo 'bx bx-arrow-down-right-stroke';
-                                    } else {
-                                        echo 'bx bx-stroke-pen';
-                                    }
-                                    ?>"></i> <span class="card-text"><?= $data['status'] ?></span>
+                                <div class="info-grid">
+                                    <div class="status <?= $data['status'] ?>">
+                                        <i class="<?php
+                                        if ($data['status'] == 'Naik') {
+                                            echo 'bx bx-arrow-up-right-stroke';
+                                        } else if ($data['status'] == 'Turun') {
+                                            echo 'bx bx-arrow-down-right-stroke';
+                                        } else {
+                                            echo 'bx bx-stroke-pen';
+                                        }
+                                        ?>"></i> <span class="card-text"><?= $data['status'] ?></span>
+                                    </div>
+                                    <div class="vertical-line" style="height: 30px;"></div>
+                                    <span><?= $data['percent'] ?>%</span>
                                 </div>
                             </div>
                         </div>

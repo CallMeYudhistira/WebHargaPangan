@@ -84,21 +84,18 @@ class FilterService {
         const json = await res.json();
 
         container.innerHTML = "";
-        let i = 1;
 
         if (json.data && json.data.length > 0) {
             json.data.forEach(item => {
                 const tr = document.createElement("tr");
-                tr.innerHTML = `<td><input type="checkbox" /></td>
-                                <td><?= ${i} ?></td>
-                                <td><img src="public/images/${item.image}" alt="${item.name}" class="table-image">
+                tr.innerHTML = `<td><img src="public/images/${item.image}" alt="${item.name}" class="table-image">
                                 </td>
                                 <td>${item.icon} ${item.name}</td>
                                 <td>${parseInt(item.avg_price)} / ${item.unit}</td>
                                 <td>${parseInt(item.max_price)} / ${item.unit}</td>
-                                <td>${parseInt(item.min_price)} / ${item.unit}</td>`;
+                                <td>${parseInt(item.min_price)} / ${item.unit}</td>
+                                <td>${item.market_name}</td>`;
                 container.appendChild(tr);
-                i++;
             });
         } else {
             container.innerHTML = '<tr><td colspan="7"><h4 align="center">Data tidak ditemukan.</h4></td></tr>';

@@ -23,8 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
             FROM market_commodities
             INNER JOIN commodities ON commodities.id = market_commodities.id_commodity
             INNER JOIN markets ON markets.id = market_commodities.id_market
-            INNER JOIN regions ON markets.id_region = regions.id
-            GROUP BY commodities.id";
+            INNER JOIN regions ON markets.id_region = regions.id";
 
     // Kondisi dinamis
     $conditions = [];
@@ -49,6 +48,8 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
     if (count($conditions) > 0) {
         $sql .= " WHERE " . implode(" AND ", $conditions);
     }
+
+    $sql .= " GROUP BY commodities.id";
 
     $result = $connection->query($sql);
     $data = [];

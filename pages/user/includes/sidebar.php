@@ -16,9 +16,6 @@
                 <a class="menu-side <?= ($current_page == 'statistik') ? 'active' : '' ?>" href="index.php?route=/statistik">
                     <span><span class="side-icon">📈</span> Statistik</span>
                 </a>
-                <a class="menu-side <?= ($current_page == 'admin') ? 'active' : '' ?>" href="index.php?route=/admin">
-                    <span><span class="side-icon">📌</span> Kelola Harga</span>
-                </a>
                 <a class="menu-side close" id="close-sidebar">
                     <span><span class="side-icon">❌</span> Close Sidebar</span>
                 </a>

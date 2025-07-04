@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET" && $month && $marketId) {
                     MAX(commodities.name) AS name,
                     MAX(commodities.icon) AS icon,
                     MAX(commodities.unit) AS unit,
-                    MAX(commodities.image) AS image,
+                    MIN(commodities.image) AS image,
                     MAX(markets.name) AS market_name,
                     MAX(market_commodities.update_at) AS update_at,
                     MAX(market_commodities.create_at) AS create_at,
@@ -25,14 +25,14 @@ if ($_SERVER["REQUEST_METHOD"] === "GET" && $month && $marketId) {
                 INNER JOIN price_logs ON price_logs.id_market_commodity = market_commodities.id
                 WHERE (market_commodities.create_at LIKE '%$month%' OR market_commodities.update_at LIKE '%$month%')
                 GROUP BY 
-                    commodities.id";
+                    markets.name";
     } else {
         $sql = "SELECT 
 					MAX(commodities.id) AS id,
                     MAX(commodities.name) AS name,
                     MAX(commodities.icon) AS icon,
                     MAX(commodities.unit) AS unit,
-                    MAX(commodities.image) AS image,
+                    MIN(commodities.image) AS image,
                     MAX(markets.name) AS market_name,
                     MAX(market_commodities.update_at) AS update_at,
                     MAX(market_commodities.create_at) AS create_at,
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET" && $month && $marketId) {
                 INNER JOIN price_logs ON price_logs.id_market_commodity = market_commodities.id
                 WHERE markets.id = '$marketId' AND (market_commodities.create_at LIKE '%$month%' OR market_commodities.update_at LIKE '%$month%')
                 GROUP BY 
-                    commodities.id";
+                    markets.name";
     }
 
     $result = $connection->query($sql);

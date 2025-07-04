@@ -495,6 +495,11 @@ main {
   margin: 0 auto;
 }
 
+.stats-filter-container{
+  justify-content: space-between;
+  display: flex;
+}
+
 @media (max-width: 1600px) {
   .form-filter {
     margin-left: -20px;
@@ -534,14 +539,6 @@ main {
 }
 
 @media (max-width: 1240px) {
-  td:last-child {
-    display: flex;
-    min-width: 100%;
-    height: 100%;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
   .filter-section {
     max-width: 1024px;
   }
@@ -553,6 +550,15 @@ main {
   .komoditas-grid {
     width: 100%;
     margin-top: 6rem;
+  }
+
+  .stats-filter-container{
+    display: block;
+    justify-content: center;
+  }
+
+  .filter-bulan{
+    justify-content: space-between;
   }
 
   .info-alert {
@@ -568,6 +574,20 @@ main {
 
   .group-menu-nav {
     display: none;
+  }
+
+  .slide{
+    width: 1000px;
+    height: 500px;
+  }
+
+  .slider{
+    max-width: 1000px;
+    max-height: 500px;
+  }
+
+  .pasar-filter{
+    width: 70%;
   }
 
   .komoditas-grid {
@@ -587,6 +607,10 @@ main {
     gap: 1rem;
   }
 
+  .pasar-filter{
+    width: 100px;
+  }
+
   .komoditas-grid .card {
     min-width: 370px;
     max-width: 370px;
@@ -601,9 +625,19 @@ main {
   }
 
   .search-container,
-  .dropdown-btn {
+  .dropdown-btn{
     width: 100%;
     flex: 1;
+  }
+
+  .slide{
+    width: 400px;
+    height: 200px;
+  }
+
+  .slider{
+    max-width: 400px;
+    max-height: 200px;
   }
 
   .search-input {
@@ -621,7 +655,7 @@ main {
   }
 
   .filter-right .search-container,
-  .search-input {
+  .search-input{
     width: 100%;
   }
 

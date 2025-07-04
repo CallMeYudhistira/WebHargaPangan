@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET" && $id) {
                 commodities.id, 
                 commodities.name,
                 price_logs.price_after AS price_after,
-                DATE_FORMAT(price_logs.create_at, '%d %M') AS tanggal
+                DATE_FORMAT(price_logs.create_at, '%d %M, %H:%m') AS tanggal
             FROM commodities
             INNER JOIN market_commodities ON commodities.id = market_commodities.id_commodity
             INNER JOIN price_logs ON price_logs.id_market_commodity = market_commodities.id
