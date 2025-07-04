@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Kelola Pasar</title>
+    <title>Log Harga - Petugas</title>
     <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="pages/petugas/assets/css/style.css">
     <link rel="stylesheet" href="assets/css/micromodal.css">

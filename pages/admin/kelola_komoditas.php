@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Kelola Komoditas</title>
+    <title>Kelola Komoditas - Admin</title>
     <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="pages/admin/assets/css/style.css">
     <link rel="stylesheet" href="assets/css/micromodal.css">

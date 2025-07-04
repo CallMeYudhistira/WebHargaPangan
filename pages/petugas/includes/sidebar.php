@@ -11,7 +11,7 @@
                     <span><span class="side-icon">🏠</span> Beranda</span>
                 </a>
                 <a class="menu-side <?= ($current_page == 'petugas/kelola-harga') ? 'active' : '' ?>" href="index.php?route=/petugas/kelola-harga">
-                    <span><span class="side-icon">📌</span> Kelola Harga</span>
+                    <span><span class="side-icon">💰</span> Kelola Harga</span>
                 </a>
                 <a class="menu-side <?= ($current_page == 'petugas/log-harga') ? 'active' : '' ?>" href="index.php?route=/petugas/log-harga">
                     <span><span class="side-icon">⌛</span> Log Harga</span>

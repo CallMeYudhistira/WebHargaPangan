@@ -362,15 +362,17 @@
   padding-block: 2.55rem;
   border-bottom: 1.5px solid rgba(0, 0, 0, 0.1);
   margin-bottom: 1.5rem;
+  flex-shrink: 0;
 }
 
 .menu-side-group {
   width: 100%;
-  height: 100%;
   padding: 0px 20px;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  flex-grow: 1;
+  overflow-y: auto;
 }
 
 .menu-side {
@@ -398,6 +400,7 @@
 .menu-side.close {
   background-color: #eee;
   cursor: pointer;
+  margin-bottom: 1rem;
 }
 
 .menu-side.close .side-icon {

@@ -10,7 +10,6 @@ body {
   min-height: 100vh;
   padding: 0 10px;
   display: flex;
-  background: #307bc4;
   justify-content: center;
   align-items: center;
 }
@@ -20,7 +19,7 @@ body {
   background: #fff;
   border-radius: 6px;
   padding: 41px 30px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.15);
 }
 .login_form h3 {
   font-size: 20px;
@@ -116,4 +115,10 @@ form button {
 }
 form button:hover {
   background: #307bc4;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 0 30px;
+  }
 }
