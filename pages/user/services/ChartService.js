@@ -14,7 +14,8 @@ class ChartService {
         title.innerHTML = 'Pergerakan Harga ' + commodity;
 
         // Tampilkan loading dan sembunyikan canvas sementara
-        loadingText.style.display = 'block';
+        loadingText.style.display = 'flex';
+        loadingText.innerHTML = `<span>Loading... 🔃</span>`
         canvas.style.display = 'none';
 
         try {
@@ -26,6 +27,12 @@ class ChartService {
             // Hancurkan chart lama jika ada
             if (ChartService.chartInstance) {
                 ChartService.chartInstance.destroy();
+            }
+
+            if (json.data.length < 2) {
+                canvas.style.display = 'none';
+                loadingText.innerHTML = `<span>🚨 Data Hanya Ada Satu 🚨</span>`
+                return;
             }
 
             const harga = json.data.map(item => item.price_after);

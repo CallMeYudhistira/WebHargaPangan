@@ -2,7 +2,7 @@
 
 require_once 'configs/connection.php';
 
-$sql = "SELECT market_commodities.id_commodity, commodities.name as commodity_name, commodities.icon, commodities.unit, commodities.image, market_commodities.price, market_commodities.status, market_commodities.percent FROM market_commodities INNER JOIN commodities ON commodities.id = market_commodities.id_commodity INNER JOIN markets ON markets.id = market_commodities.id_market";
+$sql = "SELECT market_commodities.id_commodity, commodities.name as commodity_name, commodities.icon, commodities.unit, commodities.image, market_commodities.price, market_commodities.status, market_commodities.percent FROM market_commodities RIGHT JOIN commodities ON commodities.id = market_commodities.id_commodity LEFT JOIN markets ON markets.id = market_commodities.id_market";
 
 $result = $connection->query($sql);
 
@@ -65,7 +65,7 @@ $result = $connection->query($sql);
                     <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
                 </header>
                 <main class="modal__content" id="modal-chart-content">
-                    <div id="loading-chart" style="text-align:center; padding:20px; display:none;">
+                    <div id="loading-chart" style="text-align:center; padding:20px; display:none; height: 100%; justify-content: center; align-items: center;">
                         <span>Loading... 🔃</span>
                     </div>
                     <canvas id="hargaChart"></canvas>

@@ -44,10 +44,12 @@ class FilterService {
                     icon_status = 'bx bx-arrow-down-right-stroke';
                 }
 
+                let formatter = new Intl.NumberFormat('id-ID');
+
                 const div = document.createElement("div");
                 div.innerHTML = `<div class="card animate-fadein" onclick="ChartService.ChartModal('${item.commodity_name}', '${item.id_commodity}')" style="margin: 0; margin-top: 12px;">
                 <div class="harga">
-                    <span>Rp. ${item.price} / ${item.unit}</span>
+                    <span>Rp. ${formatter.format(item.price)} / ${item.unit}</span>
                 </div>
                 <img src="public/images/${item.image}" class="card-img" alt="${item.commodity_name}">
                 <div class="view-detail">View Detail</div>
@@ -88,12 +90,28 @@ class FilterService {
         if (json.data && json.data.length > 0) {
             json.data.forEach(item => {
                 const tr = document.createElement("tr");
+                let rata_rata = parseInt(item.avg_price);
+                let max_price = parseInt(item.max_price);
+                let min_price = parseInt(item.min_price);
+
+                if(isNaN(rata_rata)){
+                    rata_rata = item.price;
+                }
+
+                if(isNaN(max_price)){
+                    max_price = item.price;
+                }
+
+                if(isNaN(min_price)){
+                    min_price = item.price;
+                }
+
                 tr.innerHTML = `<td><img src="public/images/${item.image}" alt="${item.name}" class="table-image">
                                 </td>
                                 <td>${item.icon} ${item.name}</td>
-                                <td>${parseInt(item.avg_price)} / ${item.unit}</td>
-                                <td>${parseInt(item.max_price)} / ${item.unit}</td>
-                                <td>${parseInt(item.min_price)} / ${item.unit}</td>
+                                <td>${rata_rata.toLocaleString()} / ${item.unit}</td>
+                                <td>${max_price.toLocaleString()} / ${item.unit}</td>
+                                <td>${min_price.toLocaleString()} / ${item.unit}</td>
                                 <td>${item.market_name}</td>`;
                 container.appendChild(tr);
             });

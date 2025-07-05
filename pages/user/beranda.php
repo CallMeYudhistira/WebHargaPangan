@@ -64,7 +64,7 @@ $result = $connection->query($sql);
                     <?php foreach ($result as $data): ?>
                         <div class="card animate-fadein">
                             <div class="harga">
-                                <span>Rp. <?= $data['price'] ?> / <?= $data['unit'] ?></span>
+                                <span>Rp. <?= number_format($data['price'], 0, ',', '.') ?> / <?= $data['unit'] ?></span>
                             </div>
                             <img src="public/images/<?= $data['image'] ?>" class="card-img"
                                 alt="<?= $data['commodity_name'] ?>">
@@ -100,7 +100,7 @@ $result = $connection->query($sql);
                             <?php foreach($result as $data) : ?>
                             <div class="list-komoditas">
                                 <h3><?= $data['icon'] ?> - <?= $data['commodity_name'] ?></h3>
-                                <p><span>Rp. <?= $data['price'] ?> / <?= $data['unit'] ?></span></p>
+                                <p><span>Rp. <?= number_format($data['price'], 0, ',', '.') ?> / <?= $data['unit'] ?></span></p>
                                 <p><i class="<?php
                                         if ($data['status'] == 'Naik') {
                                             echo 'bx bx-arrow-up-right-stroke';
@@ -110,7 +110,7 @@ $result = $connection->query($sql);
                                             echo 'bx bx-stroke-pen';
                                         }
                                         ?>"></i> <span><?= $data['percent'] ?>%</span></p>
-                                <button onclick="addToCart('<?= $data['id_commodity'] ?>', '<?= $data['commodity_name'] ?>', '<?= $data['price'] ?>')" class="tampil-btn" style="margin-left: 2px; background-color: #8ca; color: white;"> + Tambah </button>
+                                <button onclick="addToCart('<?= $data['id_commodity'] ?>', '<?= $data['commodity_name'] ?>', '<?= $data['price'] ?>')" class="tampil-btn" style="margin-left: 2px; background-color: #307bc4; color: white;"> + Tambah </button>
                             </div>
                             <?php endforeach; ?>
                         </div>
@@ -148,13 +148,14 @@ $result = $connection->query($sql);
             cart.forEach((item, i) => {
                 const subTotal = item.price * item.qty;
                 total += subTotal;
+                let formatter = new Intl.NumberFormat('id-ID');
 
                 const div = document.createElement('div');
                 div.className = "card-items";
                 div.innerHTML = `
                 <div>
                     <h3 style="margin-bottom: -12px;"><strong>${item.name}</strong> x ${item.qty}</h3>
-                    <h4><small>Rp ${item.price.toLocaleString()}</small></h4>
+                    <h4>Rp. ${formatter.format(item.price)}</h4>
                 </div>
                 <div class="d-flex">
                     <button onclick="updateQty(${i}, -1)" class="tampil-btn">-</button>
