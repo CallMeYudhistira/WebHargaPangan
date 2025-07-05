@@ -451,22 +451,42 @@ canvas#hargaChart {
   padding: 18px;
 }
 
-.keranjang-container {
+#cart {
   display: flex;
 }
 
-.list-komoditas {
+.list-komoditas-container {
   float: left;
   width: 60%;
-  border: 2px solid #ccc;
   padding: 15px;
+  margin: 12px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  overflow-y: scroll;
+  max-height: 500px;
 }
 
-.keranjang {
+.list-komoditas{
+  border-radius: 12px;
+  margin: 12px;
+  padding: 10px 30px 30px 30px;
+  border: 1px solid #ccc;
+}
+
+.card-items{
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+}
+
+.keranjang-container {
   float: right;
   width: 40%;
+  border-radius: 12px;
+  margin: 12px;
   padding: 15px;
-  border: 2px solid #ccc;
+  border: 1px solid #ccc;
+  overflow-y: scroll;
+  max-height: 500px;
 }
 
 .table-image {
@@ -593,6 +613,10 @@ main {
   .komoditas-grid {
     gap: 47px;
   }
+
+  #ket-keranjang{
+    display: none;
+  }
 }
 
 @media (max-width: 1025px) {
@@ -602,13 +626,25 @@ main {
 }
 
 @media (max-width: 640px) {
+  .list-komoditas-container{
+    overflow-x: scroll;
+  }
+
+  .list-komoditas{
+    overflow-x: scroll;
+  }
+
+  .keranjang-container{
+    overflow-x: scroll;
+  }
+
   .form-tampil {
     flex-direction: column;
     gap: 1rem;
   }
 
-  .pasar-filter{
-    width: 100px;
+  #pasar-filter{
+    width: auto;
   }
 
   .komoditas-grid .card {

@@ -36,7 +36,7 @@ require_once 'configs/connection.php';
                         <button class="tampil-btn">Tampilkan</button>
                     </div>
 
-                    <div class="dropdown-btn pasar-filter">
+                    <div class="dropdown-btn pasar-filter" id="pasar-filter">
                         <span class="chevron">
                             <i class='bx bx-menu-filter'></i>
                         </span>
