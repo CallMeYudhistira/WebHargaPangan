@@ -47,7 +47,7 @@ class FilterService {
                 let formatter = new Intl.NumberFormat('id-ID');
 
                 const div = document.createElement("div");
-                div.innerHTML = `<div class="card animate-fadein" onclick="ChartService.ChartModal('${item.commodity_name}', '${item.id_commodity}')" style="margin: 0; margin-top: 12px;">
+                div.innerHTML = `<div class="card animate-fadein" onclick="ChartService.ChartModal('${item.commodity_name}', '${item.id_commodity}', '${id_market}', '${status}', '${id_kecamatan}')" style="margin: 0; margin-top: 12px;">
                 <div class="harga">
                     <span>Rp. ${formatter.format(item.price)} / ${item.unit}</span>
                 </div>

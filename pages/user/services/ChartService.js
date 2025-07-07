@@ -1,7 +1,7 @@
 class ChartService {
     static chartInstance = null; // Simpan chart instance secara global
 
-    static async ChartModal(commodity, id) {
+    static async ChartModal(commodity, id, id_market, status, id_kecamatan) {
         MicroModal.show("modal-chart", {
             disableScroll: true,
             disableFocus: true
@@ -19,7 +19,7 @@ class ChartService {
         canvas.style.display = 'none';
 
         try {
-            const res = await fetch(`api/chart/charts_data.php?id=${id}`);
+            const res = await fetch(`api/chart/charts_data.php?id=${id}&id_market=${id_market}&status=${status}&id_kecamatan=${id_kecamatan}`);
             const json = await res.json();
 
             const ctx = canvas.getContext('2d');
