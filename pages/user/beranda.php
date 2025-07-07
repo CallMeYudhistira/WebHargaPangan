@@ -2,20 +2,34 @@
 
 require_once 'configs/connection.php';
 
-$sql = "SELECT 
-                MAX(commodities.id) AS id_commodity, 
-                MAX(commodities.name) AS commodity_name, 
-                MAX(commodities.icon) AS icon, 
-                MAX(commodities.unit) AS unit, 
-                MAX(commodities.image) AS image, 
-                MAX(market_commodities.price) AS price, 
-                MAX(market_commodities.status) AS status, 
-                MAX(market_commodities.percent) AS percent 
-            FROM market_commodities
-            INNER JOIN commodities ON commodities.id = market_commodities.id_commodity
-            INNER JOIN markets ON markets.id = market_commodities.id_market
-            INNER JOIN regions ON markets.id_region = regions.id
-            GROUP BY commodities.id";
+$sql = "SELECT
+    c.id AS id_commodity,
+    c.name AS commodity_name,
+    c.icon,
+    c.unit,
+    c.image,
+    mc.price,
+    mc.status,
+    mc.percent,
+    mc.create_at
+FROM
+    market_commodities mc
+INNER JOIN (
+    SELECT
+        id_commodity,
+        MAX(create_at) AS latest_create_at
+    FROM
+        market_commodities
+    GROUP BY
+        id_commodity
+) latest_mc
+ON
+    mc.id_commodity = latest_mc.id_commodity
+    AND mc.create_at = latest_mc.latest_create_at
+INNER JOIN commodities c ON c.id = mc.id_commodity
+INNER JOIN markets m ON m.id = mc.id_market
+INNER JOIN regions r ON m.id_region = r.id
+";
 
 $result = $connection->query($sql);
 

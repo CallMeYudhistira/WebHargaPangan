@@ -11,45 +11,57 @@ $keyword       = $_GET["keyword"] ?? 'all';
 if ($_SERVER["REQUEST_METHOD"] === "GET") {
 
     // Base SQL
-    $sql = "SELECT 
-                MAX(commodities.id) AS id_commodity, 
-                MAX(commodities.name) AS commodity_name, 
-                MAX(commodities.icon) AS icon, 
-                MAX(commodities.unit) AS unit, 
-                MAX(commodities.image) AS image, 
-                MAX(market_commodities.price) AS price, 
-                MAX(market_commodities.status) AS status, 
-                MAX(market_commodities.percent) AS percent 
-            FROM market_commodities
-            INNER JOIN commodities ON commodities.id = market_commodities.id_commodity
-            INNER JOIN markets ON markets.id = market_commodities.id_market
-            INNER JOIN regions ON markets.id_region = regions.id";
+    $sql = "SELECT
+    c.id AS id_commodity,
+    c.name AS commodity_name,
+    c.icon,
+    c.unit,
+    c.image,
+    mc.price,
+    mc.status,
+    mc.percent,
+    mc.create_at
+FROM
+    market_commodities mc
+INNER JOIN (
+    SELECT
+        id_commodity,
+        MAX(create_at) AS latest_create_at
+    FROM
+        market_commodities
+    GROUP BY
+        id_commodity
+) latest_mc
+ON
+    mc.id_commodity = latest_mc.id_commodity
+    AND mc.create_at = latest_mc.latest_create_at
+INNER JOIN commodities c ON c.id = mc.id_commodity
+INNER JOIN markets m ON m.id = mc.id_market
+INNER JOIN regions r ON m.id_region = r.id";
 
     // Kondisi dinamis
     $conditions = [];
 
     if ($id_market !== 'all') {
-        $conditions[] = "markets.id = '$id_market'";
+        $conditions[] = "m.id = '$id_market'";
     }
 
     if ($status !== 'all') {
-        $conditions[] = "market_commodities.status = '$status'";
+        $conditions[] = "latest_mc.status = '$status'";
     }
 
     if ($id_kecamatan !== 'all') {
-        $conditions[] = "regions.id = '$id_kecamatan'";
+        $conditions[] = "r.id = '$id_kecamatan'";
     }
 
     if ($keyword !== 'all') {
-        $conditions[] = "commodities.name LIKE '%$keyword%'";
+        $conditions[] = "c.name LIKE '%$keyword%'";
     }
 
     // Gabungkan kondisi ke query
     if (count($conditions) > 0) {
         $sql .= " WHERE " . implode(" AND ", $conditions);
     }
-
-    $sql .= " GROUP BY commodities.id";
 
     $result = $connection->query($sql);
     $data = [];
